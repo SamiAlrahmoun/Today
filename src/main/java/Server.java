@@ -25,7 +25,7 @@ public class Server extends UnicastRemoteObject implements RMIInterface{
 
         try {
 
-            Naming.rebind("//localhost/MyServer", new Server());
+            Naming.rebind("http://localhost:3500/", new Server());
             System.err.println("Server ready");
 
         } catch (Exception e) {
