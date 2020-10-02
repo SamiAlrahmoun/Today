@@ -1,5 +1,7 @@
 public class Product {
     private String id, name, descriptif, createdAt, quantity, picture;
+    private int amount;
+
 
     public String getId() {
         return id;
@@ -11,6 +13,10 @@ public class Product {
 
     public String getDescriptif() {
         return descriptif;
+    }
+
+    public int getAmount() {
+        return amount;
     }
 
     public String getCreatedAt() {
@@ -35,6 +41,10 @@ public class Product {
 
     public void setDescriptif(String descriptif) {
         this.descriptif = descriptif;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public void setCreatedAt(String createdAt) {

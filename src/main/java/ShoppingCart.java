@@ -11,7 +11,12 @@ public class ShoppingCart {
     public void addToCart(Product item){
          this.items.add(item);
     }
+
     public void removeToCArt(Product item){
         this.items.removeIf(prod->prod.getId()==item.getId());
     }
+    public void removeAll(){
+        this.getItems().clear();
+    }
+
 }
