@@ -1,4 +1,4 @@
-public class User {
+public class User implements java.io.Serializable {
     private String id, name, email, password, picture;
     private Product refProduct;
 
