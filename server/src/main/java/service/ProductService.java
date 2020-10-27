@@ -1,6 +1,6 @@
 package service;
 
-import model.Product;
+import document.Product;
 
 import java.util.List;
 

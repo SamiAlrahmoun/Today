@@ -1,4 +1,4 @@
-import model.Product;
+import document.Product;
 
 public class User implements java.io.Serializable {
     private String id, name, email, password, picture;

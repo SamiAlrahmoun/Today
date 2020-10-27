@@ -1,22 +1,16 @@
-package model;
+package document;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.Id;
 
-@Entity
+@Document
 public class User implements java.io.Serializable {
 
     @Id
-    @Column(unique = true, nullable = false)
-    private String id;
-    @Column(nullable = false)
+    private int id;
     private String username;
-    @Column(nullable = false)
     private String email;
-    @Column(nullable = false)
     private String password;
-
 
     public User() {
     }
@@ -26,7 +20,7 @@ public class User implements java.io.Serializable {
      * @param email    the password
      * @param password the password
      */
-    public User(String id, String username, String email, String password) {
+    public User(int id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -35,13 +29,13 @@ public class User implements java.io.Serializable {
     /**
      * @return the id
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
     /**
      * @param id the new password
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

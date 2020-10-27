@@ -1,23 +1,16 @@
-package model;
+package document;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.Id;
 
-@Entity
+@Document
 public class Product {
     @Id
-    @Column(unique = true, nullable = false)
     private String id;
-    @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
     private String description;
-    @Column(nullable = false)
     private String createdAt;
-    @Column(nullable = false)
     private String quantity;
-    @Column(nullable = false)
     private int amount;
 
     public Product() {

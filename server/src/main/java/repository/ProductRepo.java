@@ -1,9 +1,9 @@
 package repository;
 
-import model.Product;
-import org.springframework.data.jpa.repository.JpaRepository;
+import document.Product;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 
-public interface ProductRepo extends JpaRepository<Product, Integer> {
+public interface ProductRepo extends MongoRepository<Product, Integer> {
 
 }
