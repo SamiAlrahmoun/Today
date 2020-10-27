@@ -15,9 +15,9 @@ public class MongodbConfig {
         return  new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
-                userRepo.save(new User(1, "Sami", "sami@gmail.com", "123456"));
-                userRepo.save(new User(2, "marvel", "marvel@gmail.com", "123456"));
-                userRepo.save(new User(3, "oury", "oury@gmail.com", "123456"));
+                userRepo.save(new User("1", "Sami", "sami@gmail.com", "123456"));
+                userRepo.save(new User("2", "marvel", "marvel@gmail.com", "123456"));
+                userRepo.save(new User("3", "oury", "oury@gmail.com", "123456"));
             }
         };
     }

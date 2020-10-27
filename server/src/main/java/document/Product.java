@@ -1,14 +1,17 @@
 package document;
 
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.Id;
 
-@Document
+@Document(collection = "Products")
 public class Product {
     @Id
     private String id;
     private String name;
     private String description;
+    @Indexed(direction = IndexDirection.ASCENDING)
     private String createdAt;
     private String quantity;
     private int amount;

@@ -3,24 +3,21 @@ package document;
 import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.Id;
 
-@Document
+@Document(collection = "Users")
 public class User implements java.io.Serializable {
 
     @Id
-    private int id;
+    private String id;
     private String username;
     private String email;
     private String password;
-
-    public User() {
-    }
 
     /**
      * @param username the username
      * @param email    the password
      * @param password the password
      */
-    public User(int id, String username, String email, String password) {
+    public User(String id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -29,13 +26,13 @@ public class User implements java.io.Serializable {
     /**
      * @return the id
      */
-    public int getId() {
+    public String getId() {
         return id;
     }
     /**
      * @param id the new password
      */
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
