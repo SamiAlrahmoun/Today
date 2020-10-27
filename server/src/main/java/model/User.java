@@ -9,6 +9,8 @@ public class User implements java.io.Serializable {
 
     @Id
     @Column(unique = true, nullable = false)
+    private String id;
+    @Column(nullable = false)
     private String username;
     @Column(nullable = false)
     private String email;
@@ -24,10 +26,23 @@ public class User implements java.io.Serializable {
      * @param email    the password
      * @param password the password
      */
-    public User(String username, String email, String password) {
+    public User(String id, String username, String email, String password) {
+        this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+    /**
+     * @param id the new password
+     */
+    public void setId(String id) {
+        this.id = id;
     }
 
     /**
