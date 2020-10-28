@@ -3,6 +3,7 @@ package document;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import javax.persistence.Id;
 
 @Document(collection = "Products")
@@ -25,54 +26,63 @@ public class Product {
     public String getId() {
         return id;
     }
+
     /**
      * @param id the new password
      */
     public void setId(String id) {
         this.id = id;
     }
+
     /**
      * @return the name
      */
     public String getName() {
         return name;
     }
+
     /**
      * @param name the new password
      */
     public void setName(String name) {
         this.name = name;
     }
+
     /**
      * @return the description
      */
     public String getDescription() {
         return description;
     }
+
     /**
      * @param description the new password
      */
     public void setDescription(String description) {
         this.description = description;
     }
+
     /**
      * @return the createdAt
      */
     public String getCreatedAt() {
         return createdAt;
     }
+
     /**
      * @param createdAt the new password
      */
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
+
     /**
      * @return the Quantity
      */
     public String getQuantity() {
         return quantity;
     }
+
     /**
      * @param quantity the new password
      */
@@ -86,6 +96,7 @@ public class Product {
     public int getAmount() {
         return amount;
     }
+
     /**
      * @param amount the new password
      */

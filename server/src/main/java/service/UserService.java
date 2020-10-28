@@ -12,4 +12,5 @@ public interface UserService {
     List<User> getCustomerByName(String name);
 
     int getCountCustomer();
+
 }
