@@ -13,4 +13,8 @@ public interface UserService {
 
     int getCountCustomer();
 
+    User save(User user);
+    //User update(User user);
+    //User delete(User user);
+
 }
