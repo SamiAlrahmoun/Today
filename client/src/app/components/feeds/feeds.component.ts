@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feeds.component.css']
 })
 export class FeedsComponent implements OnInit {
+  title = 'client';
+ private product: any;
 
-  constructor() { }
+  constructor() {
+    console.log('Feeds component is called')
+  }
 
   ngOnInit() {
   }
