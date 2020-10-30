@@ -18,11 +18,14 @@ public class User implements java.io.Serializable {
      * @param email    the password
      * @param password the password
      */
-    public User(String id, String username, String email, String password) {
+    public User( String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+    public User() {
+
     }
     /**
      * @return the id

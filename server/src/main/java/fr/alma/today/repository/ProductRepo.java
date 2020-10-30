@@ -1,6 +1,5 @@
 package fr.alma.today.repository;
 
-git addimport document.Product;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

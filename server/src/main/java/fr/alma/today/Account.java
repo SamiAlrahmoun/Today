@@ -1,3 +1,5 @@
+package fr.alma.today;
+
 public class Account {
     String id;
     boolean closed;

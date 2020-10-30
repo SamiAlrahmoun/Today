@@ -1,6 +1,6 @@
 package fr.alma.today.repository;
 
-import document.User;
+import fr.alma.today.models.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
