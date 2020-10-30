@@ -1,15 +1,15 @@
-package service;
+package fr.alma.today.service;
 
 
-import document.User;
+
+import fr.alma.today.models.User;
 
 import java.util.List;
 
-public interface UserService {
+public class UserService {
 
-    List<User> getCustomerList();
 
-    List<User> getCustomerByName(String name);
+    User getCustomerByName(String name);
 
     int getCountCustomer();
 
