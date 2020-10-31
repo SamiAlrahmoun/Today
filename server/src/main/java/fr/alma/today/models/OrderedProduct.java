@@ -26,12 +26,8 @@ public class OrderedProduct {
     @NotNull
     private double productPrice;
 
-    public OrderedProduct(ProductInformation productInfo, Integer quantity) {
-        this.productId = productInfo.getProductId();
-        this.productName = productInfo.getProductName();
-        this.productDescription = productInfo.getProductDescription();
-        this.productIcon = productInfo.getProductIcon();
-        this.productPrice = productInfo.getProductPrice();
+    public  OrderedProduct( Integer quantity) {
+
     }
 
     @Override

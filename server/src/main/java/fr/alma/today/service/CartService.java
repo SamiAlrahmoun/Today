@@ -1,8 +1,10 @@
-package service;
+package fr.alma.today.service;
 
-import document.Cart;
-import document.OrderedProduct;
-import document.User;
+
+
+import fr.alma.today.models.Cart;
+import fr.alma.today.models.OrderedProduct;
+import fr.alma.today.models.User;
 
 import java.util.Collection;
 

@@ -9,11 +9,15 @@ import java.util.List;
 public class UserService {
 
 
-    User getCustomerByName(String name);
+    User getCustomerByName(String name) {
+        return null;
+    }
 
-    int getCountCustomer();
+    int getCountCustomer() {
+        return 0;
+    }
 
-    User save(User user);
+   // User save(User user);
     //User update(User user);
     //User delete(User user);
 

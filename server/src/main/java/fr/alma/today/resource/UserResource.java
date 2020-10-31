@@ -1,17 +1,19 @@
 package fr.alma.today.resource;
 
-import document.User;
+
+import fr.alma.today.models.User;
+import fr.alma.today.repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
-import repository.UserRepo;
+
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/rest/user")
 public class UserResource {
-    private UserRepo userRepo;
+    private UserRepository userRepo;
 
-    public UserResource(UserRepo userRepo) {
+    public UserResource(UserRepository userRepo) {
         this.userRepo = userRepo;
     }
 

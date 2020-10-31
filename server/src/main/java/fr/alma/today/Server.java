@@ -1,3 +1,5 @@
+package fr.alma.today;
+
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

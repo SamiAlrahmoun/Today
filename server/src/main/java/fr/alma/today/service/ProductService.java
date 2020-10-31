@@ -1,6 +1,7 @@
-package service;
+package fr.alma.today.service;
 
-import document.Product;
+
+import fr.alma.today.models.Product;
 
 import java.util.List;
 

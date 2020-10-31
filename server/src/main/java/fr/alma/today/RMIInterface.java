@@ -1,4 +1,4 @@
-
+package fr.alma.today;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

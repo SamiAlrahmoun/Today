@@ -1,7 +1,13 @@
 package fr.alma.today.service.imp;
 
-public class UserServiceImp {
-    User findById(Long id);
+import fr.alma.today.models.User;
 
-    User findByUsername(String username);
+public class UserServiceImp {
+    User findById(Long id) {
+        return null;
+    }
+
+    User findByUsername(String username) {
+        return null;
+    }
 }

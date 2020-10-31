@@ -19,6 +19,6 @@ public interface ProductRepository extends MongoRepository<Product, String> {
      * @param id  of the territory
      * @return a Territory if the id matches
      */
-    Territory findById(int id);
+    Product findById(int id);
 
 }
