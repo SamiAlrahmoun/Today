@@ -32,27 +32,18 @@ public class ShopMethods {
 
         ///after the block of  synchronisation
 
-
-
         return true;
     }
 
 
     //to do block of sybchromisation
     public Cart addToCart(String cartId, String productID){
-
-        Product product = productService.getProductById(productID);
-        Cart cart = cartService.getCart(cartId);
-        cart.getProducts().add(product);
-        cart.setSize(cart.getProducts().size());
-        cart.setTotal(cart.cartPrice(cart.getProducts()));
-       Cart newCart =  cartRepository.save(cart);
-       return newCart;
-
-
+        return   cartService.addToCart(cartId, productID);
 
     }
-    public void removeFromCart(String username, String productID){
+    public Cart removeFromCart(String cartId, String productID){
+        return   cartService.removeToCart(cartId, productID);
+        //return newCart;
 
     }
     //block of synchronisation
