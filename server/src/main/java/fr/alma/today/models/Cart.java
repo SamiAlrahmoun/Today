@@ -17,12 +17,57 @@ public class Cart implements Serializable {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long cartId;
-    private User user;
-
+    private String cartId;
     private List<Product> products = new ArrayList<Product>() ;
+    private Double total ;
+    private Integer size ;
 
+    public Cart(){
+        this.size = 0;
+        this.total = 0.0;
+    }
+
+
+    
+    
+    
     public List<Product> getItems() {
+        return products;
+    }
+    
+
+    public String getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(String cartId) {
+        this.cartId = cartId;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+    public Double cartPrice(List<Product> products){
+        Double sum = 0.0;
+        for (Product product:products) {
+            sum += product.getAmount();
+        }
+        return sum;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public Integer getSize() {
+        return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    public List<Product> getProducts() {
         return products;
     }
 
@@ -45,9 +90,6 @@ public class Cart implements Serializable {
                 ", products=" + products +
                 '}';
     }
-
-    public Cart(User user) {
-        this.user = user;
-    }
+    
 
 }

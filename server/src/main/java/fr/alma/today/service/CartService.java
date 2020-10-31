@@ -15,7 +15,7 @@ import java.util.Optional;
 public class CartService {
 private CartRepository cartRepository;
 
-    public Cart myCart(String cardId){
+    public Cart getCart(String cardId){
         return cartRepository.findById(cardId);
     }
     public List<Cart> mCart(String cardId){
@@ -23,6 +23,10 @@ private CartRepository cartRepository;
     }
     public void mergeLocalCart(Collection<OrderedProduct> orderedProducts, User user) {
 
+    }
+
+    public Cart addToCart(Cart cart){
+       return cartRepository.save(cart);
     }
 
     public void delete(String itemId, User user) {

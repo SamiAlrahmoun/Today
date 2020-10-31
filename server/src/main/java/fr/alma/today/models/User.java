@@ -8,7 +8,7 @@ public class User implements java.io.Serializable {
     @Id
     private String id;
     private String username;
-    private Product refProduct;
+    private String cardID;
     private String email;
     private String password;
 
@@ -18,8 +18,8 @@ public class User implements java.io.Serializable {
      * @param email    the password
      * @param password the password
      */
-    public User( String username, String email, String password) {
-        this.id = id;
+    public User( String id,String username, String email, String password) {
+        this.cardID = id;
         this.username = username;
         this.email = email;
         this.password = password;
@@ -68,6 +68,14 @@ public class User implements java.io.Serializable {
         this.email = email;
     }
 
+    public String getCardID() {
+        return cardID;
+    }
+
+    public void setCardID(String cardID) {
+        this.cardID = cardID;
+    }
+
     /**
      * @return the email
      */
@@ -81,8 +89,6 @@ public class User implements java.io.Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-    public void setRefProduct(Product refProduct) {
-        this.refProduct = refProduct;
-    }
+
 
 }
