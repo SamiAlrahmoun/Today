@@ -5,23 +5,38 @@ import fr.alma.today.models.Product;
 
 import java.util.List;
 
-public interface ProductService {
+public class ProductService {
 
-    List<Product> getProductList();
+   public List<Product> getProductList(Product product) {
+        return null;
+    }
 
-    List<Product> getProductById(int productId);
+   public Product getProductById(String productId) {
+        return null;
+    }
 
-    List<Product> getProductByName(String name);
+   public List<Product> getProductByName(String name) {
+        return null;
+    }
 
-    boolean addProduct(Product product);
+   public boolean addProduct(Product product) {
+        return false;
+    }
 
-    boolean modifyProduct(Product product);
+   public boolean modifyProduct(Product product) {
+        return false;
+    }
 
-    boolean deleteProduct(int productId);
+   public boolean deleteProduct(int productId) {
+        return false;
+    }
 
-    int countProduct();
 
-    List<Product> sortByProduct();
+   public List<Product> sortByProduct() {
+        return null;
+    }
 
-    List<Product> sortByProductDesc();
+   public List<Product> sortByProductDesc() {
+        return null;
+    }
 }
