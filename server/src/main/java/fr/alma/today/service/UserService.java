@@ -1,24 +1,19 @@
 package fr.alma.today.service;
-
-
+import fr.alma.today.repository.UserRepository;
 
 import fr.alma.today.models.User;
 
-import java.util.List;
-
 public class UserService {
+ private UserRepository userRepo;
 
-
-    User getCustomerByName(String name) {
-        return null;
+   public User getCustomerByUsername(String name) {
+        return this.userRepo.findByUsername(name);
     }
 
     int getCountCustomer() {
         return 0;
     }
 
-   // User save(User user);
-    //User update(User user);
-    //User delete(User user);
+
 
 }
