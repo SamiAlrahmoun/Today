@@ -23,7 +23,12 @@ public class ShopMethods {
         return cartService.mCart(cardId);
     }
     // to do block de synchronization
-    public boolean buy(String username,String productId){
+    public boolean buy(String username,String cardId){
+
+
+        ///after the block of  synchronisation
+
+
 
         return true;
     }

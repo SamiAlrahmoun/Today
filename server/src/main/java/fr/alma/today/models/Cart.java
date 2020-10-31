@@ -20,23 +20,23 @@ public class Cart implements Serializable {
     private long cartId;
     private User user;
 
-    private List<Product> items = new ArrayList<Product>() ;
+    private List<Product> products = new ArrayList<Product>() ;
 
     public List<Product> getItems() {
-        return items;
+        return products;
     }
 
     public void addToCart(Product item){
-        this.items.add(item);
+        this.products.add(item);
     }
 
     public void removeToCArt(Product item){
-        this.items.removeIf(prod->prod.getId()==item.getId());
+        this.products.removeIf(prod->prod.getId()==item.getId());
     }
     public void removeAll(){
         this.getItems().clear();
     }
-    private Set<OrderedProduct> products = new HashSet<>();
+
 
     @Override
     public String toString() {

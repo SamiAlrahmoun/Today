@@ -1,12 +1,15 @@
 package fr.alma.today.service;
 
 
+import fr.alma.today.models.Cart;
+import fr.alma.today.models.Order;
 import fr.alma.today.models.Product;
+import fr.alma.today.repository.OrderRepository;
 
 import java.util.List;
 
 public class ProductService {
-
+private OrderRepository orderRepository ;
    public List<Product> getProductList(Product product) {
         return null;
     }
@@ -25,6 +28,9 @@ public class ProductService {
 
    public boolean modifyProduct(Product product) {
         return false;
+    }
+    public Order buy (Order order){
+      return orderRepository.save(order);
     }
 
    public boolean deleteProduct(int productId) {

@@ -7,4 +7,5 @@ import fr.alma.today.models.Order;
 
 
 public interface OrderRepository extends MongoRepository<Order, Integer>{
+
 }
