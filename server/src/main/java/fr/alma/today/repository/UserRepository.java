@@ -9,8 +9,8 @@ import java.util.List;
 @Repository
 public interface UserRepository extends MongoRepository<User, Integer> {
 
-     User findByUsername(String username);
-     User findById(int id);
+   User findByUsername(String username);
+   User findById(int id);
 
 
 }
