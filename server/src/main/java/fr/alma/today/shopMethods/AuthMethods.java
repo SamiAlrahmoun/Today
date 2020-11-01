@@ -14,8 +14,9 @@ public class AuthMethods {
     private CartService cartService = new CartService();
     public User register(String username,String email,String password){
         Cart cart= new Cart();
-          cart = cartRepository.save(cart);
-        User user =  new User(cartService.getCart(cart.getCartId()).getCartId(),username,email,password);
+        cart = cartRepository.save(cart);
+        Account account = new Account(username);
+        User user =  new User(account.getId(),cartService.getCart(cart.getCartId()).getCartId(),username,email,password);
         userRepo.save(user);
         return user;
     }

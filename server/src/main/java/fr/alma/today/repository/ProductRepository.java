@@ -21,5 +21,6 @@ public interface ProductRepository extends MongoRepository<Product, Integer> {
      * @return a Territory if the id matches
      */
     Product findById(String id);
+    void deleteById(String id);
 
 }

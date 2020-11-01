@@ -9,7 +9,8 @@ public class User implements Serializable {
     @Id
     private String id;
     private String username;
-    private String cardID;
+    private String cardId;
+    private String accountId;
     private String email;
     private String password;
 
@@ -20,8 +21,9 @@ public class User implements Serializable {
      * @param email    the password
      * @param password the password
      */
-    public User( String id,String username, String email, String password) {
-        this.cardID = id;
+    public User( String accountId,String cardId,String username, String email, String password) {
+        this.cardId = cardId;
+        this.accountId = accountId;
         this.username = username;
         this.email = email;
         this.password = password;
@@ -70,16 +72,24 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getCardID() {
-        return cardID;
+    public String getCardId() {
+        return cardId;
     }
 
-    public void setCardID(String cardID) {
-        this.cardID = cardID;
+    public void setCardId(String cardID) {
+        this.cardId = cardID;
+    }
+
+    public String getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
     }
 
     /**
-     * @return the email
+     * @return the Password
      */
     public String getPassword() {
         return password;

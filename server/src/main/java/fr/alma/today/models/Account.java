@@ -1,15 +1,29 @@
 package fr.alma.today.models;
 
-public class Account {
-    String id;
-    boolean closed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-    public Account() {
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Document(collection = "Accounts")
+public class Account implements Serializable {
+
+    @Id
+    private String id;
+    private boolean status;
+    private String name;
+    private Double amount;
+
+    public Account(String  name) {
+        this.name = name;
+        this.status = false;
+        this.amount = freeAmount();
+
     }
 
     public Account(String id, boolean closed) {
         this.id = id;
-        this.closed = closed;
+        this.status = closed;
     }
 
     public String getId() {
@@ -21,10 +35,32 @@ public class Account {
     }
 
     public boolean isClosed() {
-        return closed;
+        return status;
     }
 
-    public void setClosed(boolean closed) {
-        this.closed = closed;
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+    public Double freeAmount(){
+        double amount = (double) (Math.random() * (3000 - 1000)) + 1000;
+        return amount;
     }
 }
