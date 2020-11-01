@@ -1,4 +1,4 @@
-package fr.alma.today;
+package fr.alma.today.models;
 
 public class Account {
     String id;

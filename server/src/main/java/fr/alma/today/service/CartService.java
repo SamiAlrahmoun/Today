@@ -3,15 +3,11 @@ package fr.alma.today.service;
 
 
 import fr.alma.today.models.Cart;
-import fr.alma.today.models.OrderedProduct;
 import fr.alma.today.models.Product;
 import fr.alma.today.models.User;
 import fr.alma.today.repository.CartRepository;
 
-import javax.smartcardio.Card;
-import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Predicate;
 
 public class CartService {

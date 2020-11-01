@@ -30,8 +30,7 @@ public class ShopMethods {
         return cartService.mCart(cardId);
     }
     // to do block de synchronization
-    public Order buy(String id, String cardId, String Address){
-
+    public synchronized Order buy(String id, String cardId, String Address){
         ///after the block of  synchronisation
         return orderService.buy(id,cardId,Address);
 
@@ -43,13 +42,13 @@ public class ShopMethods {
         return   cartService.addToCart(cartId, productID);
 
     }
-    public Cart removeFromCart(String cartId, String productID){
+    public synchronized Cart removeFromCart(String cartId, String productID){
         return   cartService.removeToCart(cartId, productID);
 
 
     }
     //block of synchronisation
-    public Product EditProduct(String productID,String name,String description, double price, Integer quantity){
+    public synchronized Product EditProduct(String productID,String name,String description, double price, Integer quantity){
         Product product = new Product(productID,name,description,price,quantity);
         return productService.modifyProduct(product);
 
@@ -57,7 +56,7 @@ public class ShopMethods {
     }
 
     //block of synchronisation
-    public boolean deletProduct(String productId){
+    public synchronized boolean deletProduct(String productId){
         return productService.deleteProduct(productId);
     }
 
