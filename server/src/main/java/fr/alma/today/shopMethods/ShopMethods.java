@@ -18,6 +18,8 @@ public class ShopMethods {
     private ProductService productService = new ProductService();
     private CartService cartService = new CartService();
     private OrderService orderService = new OrderService();
+    private CartRepository cartRepository;
+    private ProductRepository productRepository;
 
 
 
@@ -31,6 +33,8 @@ public class ShopMethods {
     }
     // to do block de synchronization
     public synchronized Order buy(String id, String cardId, String Address){
+        Cart cart = cartRepository.findById(cardId);
+        lockedCartProduct(cart.getProducts());
         ///after the block of  synchronisation
         return orderService.buy(id,cardId,Address);
 
@@ -43,6 +47,7 @@ public class ShopMethods {
 
     }
     public synchronized Cart removeFromCart(String cartId, String productID){
+
         return   cartService.removeToCart(cartId, productID);
 
 
@@ -60,6 +65,14 @@ public class ShopMethods {
         return productService.deleteProduct(productId);
     }
 
-
+   public void lockedCartProduct(List<Product> products){
+       for (Product product:products) {
+           lockedProduct(product);
+       }
+   }
+   public void lockedProduct(Product product){
+       product.setLocked(true);
+       productRepository.save(product);
+   }
 
 }

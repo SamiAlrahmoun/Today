@@ -17,8 +17,11 @@ public class Product implements Serializable {
     private String createdAt;
     private Integer quantity;
     private double amount;
+    //Object used for the Synchroniation
+    private boolean locked;
 
     public Product() {
+        this.locked = false;
     }
     public Product(String productID,String name,String description, double price, Integer quantity){
         this.id = productID;
@@ -26,6 +29,7 @@ public class Product implements Serializable {
         this.description = description;
         this.amount = price;
         this.quantity = quantity;
+        this.locked = false;
     }
 
     /**
@@ -105,10 +109,19 @@ public class Product implements Serializable {
         return amount;
     }
 
+    public void setLocked(boolean locked) {
+        this.locked = locked;
+    }
+
+    public boolean isLocked() {
+        return locked;
+    }
+
     /**
-     * @param amount the new password
+     * @param amount the new amount
      */
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
 }
