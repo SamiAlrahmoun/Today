@@ -47,22 +47,36 @@ public class ShopMethods {
 
     }
     public synchronized Cart removeFromCart(String cartId, String productID){
+        if(isLocked(productID)){
+            return cartService.getCart(cartId);
+        }else{
+            return cartService.removeToCart(cartId, productID);
+        }
 
-        return   cartService.removeToCart(cartId, productID);
 
 
     }
     //block of synchronisation
     public synchronized Product EditProduct(String productID,String name,String description, double price, Integer quantity){
-        Product product = new Product(productID,name,description,price,quantity);
-        return productService.modifyProduct(product);
+        if(isLocked(productID)){
+            return productService.getProductById(productID);
+        }else{
+            Product product = new Product(productID,name,description,price,quantity);
+            return productService.modifyProduct(product);
+        }
+
 
 
     }
 
     //block of synchronisation
     public synchronized boolean deletProduct(String productId){
-        return productService.deleteProduct(productId);
+        if(isLocked(productId)){
+            return productService.deleteProduct(productId);
+        }else{
+            return false;
+        }
+
     }
 
    public void lockedCartProduct(List<Product> products){
@@ -73,6 +87,9 @@ public class ShopMethods {
    public void lockedProduct(Product product){
        product.setLocked(true);
        productRepository.save(product);
+   }
+   public boolean isLocked (String productId){
+      return   productRepository.findById(productId).isLocked();
    }
 
 }
