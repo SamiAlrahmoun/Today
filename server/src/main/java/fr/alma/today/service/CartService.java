@@ -12,10 +12,10 @@ import javax.smartcardio.Card;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class CartService {
 private CartRepository cartRepository;
-    private UserService userService = new UserService();
     private ProductService productService = new ProductService();
 
     public Cart getCart(String cardId){
@@ -24,14 +24,11 @@ private CartRepository cartRepository;
     public List<Cart> mCart(String cardId){
         return cartRepository.findAll(cardId);
     }
-    public void mergeLocalCart(Collection<OrderedProduct> orderedProducts, User user) {
-
-    }
 
     public Cart addToCart(String cartId, String productID){
         Product product = productService.getProductById(productID);
         Cart cart = getCart(cartId);
-        cart.getProducts().add(product);
+        cart.getProducts().removeIf((Predicate<? super Product>) product);
         cart.setSize(cart.getProducts().size());
         cart.setTotal(cart.cartPrice(cart.getProducts()));
         return cartRepository.save(cart);

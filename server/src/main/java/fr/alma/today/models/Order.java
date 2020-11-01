@@ -27,6 +27,8 @@ public class Order implements Serializable {
     private String email;
     private String address;
     private List<Product> products;
+    private Double price;
+    private Integer quantity;
 
     /*
     @NotNull
@@ -44,11 +46,14 @@ public class Order implements Serializable {
             this.orderStatus = 0;*/
 
     }
-    public Order (String username,String email, String address, List<Product> products){
+    public Order (String username,String email, String address, List<Product> products, Double price, Integer quantity){
         this.username =username;
         this.email =  email;
         this.address = address;
         this.products = products;
+        this.price = price;
+        this.quantity = quantity;
+
     }
 
 }

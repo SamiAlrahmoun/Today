@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserRepository extends MongoRepository<User, Integer> {
 
    User findByUsername(String username);
-   User findById(int id);
+   User findById(String id);
 
 
 }

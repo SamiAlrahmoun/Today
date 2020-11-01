@@ -1,21 +1,24 @@
 package fr.alma.today.shopMethods;
 
 import fr.alma.today.models.Cart;
+import fr.alma.today.models.Order;
 import fr.alma.today.models.Product;
 import fr.alma.today.repository.CartRepository;
 import fr.alma.today.repository.ProductRepository;
 import fr.alma.today.repository.UserRepository;
 import fr.alma.today.service.CartService;
+import fr.alma.today.service.OrderService;
 import fr.alma.today.service.ProductService;
 import fr.alma.today.service.UserService;
 
 import java.util.List;
 
 public class ShopMethods {
-    private UserService userService = new UserService();
+
     private ProductService productService = new ProductService();
     private CartService cartService = new CartService();
-    private  CartRepository cartRepository;
+    private OrderService orderService = new OrderService();
+
 
 
     //to block of synchronisation
@@ -27,12 +30,11 @@ public class ShopMethods {
         return cartService.mCart(cardId);
     }
     // to do block de synchronization
-    public boolean buy(String username,String cardId){
-
+    public Order buy(String id, String cardId, String Address){
 
         ///after the block of  synchronisation
+        return orderService.buy(id,cardId,Address);
 
-        return true;
     }
 
 
@@ -43,16 +45,20 @@ public class ShopMethods {
     }
     public Cart removeFromCart(String cartId, String productID){
         return   cartService.removeToCart(cartId, productID);
-        //return newCart;
+
 
     }
     //block of synchronisation
-    public void EditProduct(String productID){
+    public Product EditProduct(String productID,String name,String description, double price, Integer quantity){
+        Product product = new Product(productID,name,description,price,quantity);
+        return productService.modifyProduct(product);
+
+
     }
 
     //block of synchronisation
-    public void deletProduct(String productId){
-
+    public boolean deletProduct(String productId){
+        return productService.deleteProduct(productId);
     }
 
 

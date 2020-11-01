@@ -1,9 +1,10 @@
 package fr.alma.today.models;
 import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Document(collection = "Users")
-public class User implements java.io.Serializable {
+public class User implements Serializable {
 
     @Id
     private String id;
@@ -11,6 +12,7 @@ public class User implements java.io.Serializable {
     private String cardID;
     private String email;
     private String password;
+
 
 
     /**

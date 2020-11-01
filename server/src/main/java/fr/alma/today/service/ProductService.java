@@ -5,17 +5,20 @@ import fr.alma.today.models.Cart;
 import fr.alma.today.models.Order;
 import fr.alma.today.models.Product;
 import fr.alma.today.repository.OrderRepository;
+import fr.alma.today.repository.ProductRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ProductService {
-private OrderRepository orderRepository ;
+private ProductRepository productRepository;
+private OrderRepository orderRepository;
    public List<Product> getProductList(Product product) {
-        return null;
+     return  productRepository.findAll();
     }
 
    public Product getProductById(String productId) {
-        return null;
+        return productRepository.findById(productId);
     }
 
    public List<Product> getProductByName(String name) {
@@ -26,16 +29,19 @@ private OrderRepository orderRepository ;
         return false;
     }
 
-   public boolean modifyProduct(Product product) {
-        return false;
-    }
-    public Order buy (Order order){
-      return orderRepository.save(order);
+   public Product modifyProduct(Product product) {
+      return  productRepository.save(product);
     }
 
-   public boolean deleteProduct(int productId) {
-        return false;
-    }
+   public boolean deleteProduct(String productId) {
+        productRepository.deleteById(productId);
+        Product product = productRepository.findById(productId);
+        if(product.getId().isEmpty()) {
+            return true;
+        }else{
+            return false;
+        }
+   }
 
 
    public List<Product> sortByProduct() {

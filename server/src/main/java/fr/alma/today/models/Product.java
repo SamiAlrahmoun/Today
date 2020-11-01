@@ -5,19 +5,27 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Document(collection = "Products")
-public class Product {
+public class Product implements Serializable {
     @Id
     private String id;
     private String name;
     private String description;
     @Indexed(direction = IndexDirection.ASCENDING)
     private String createdAt;
-    private String quantity;
-    private int amount;
+    private Integer quantity;
+    private double amount;
 
     public Product() {
+    }
+    public Product(String productID,String name,String description, double price, Integer quantity){
+        this.id = productID;
+        this.name= name;
+        this.description = description;
+        this.amount = price;
+        this.quantity = quantity;
     }
 
     /**
@@ -79,21 +87,21 @@ public class Product {
     /**
      * @return the Quantity
      */
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
     /**
-     * @param quantity the new password
+     * @param quantity  set the quantity
      */
-    public void setQuantity(String quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
     /**
      * @return the amount
      */
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
