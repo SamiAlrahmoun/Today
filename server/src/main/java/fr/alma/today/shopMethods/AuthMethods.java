@@ -6,7 +6,7 @@ import fr.alma.today.service.CartService;
 import fr.alma.today.service.UserService;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-public class AuthMethods {
+public class AuthMethods implements Auth{
     private  MongoTemplate mongoTemplate;
     private  UserRepository userRepo ;
     private  CartRepository cartRepository;
@@ -20,12 +20,12 @@ public class AuthMethods {
         userRepo.save(user);
         return user;
     }
-    public Boolean login(String username, String password){
+    public User login(String username, String password){
       User client =  this.userService.getCustomerByUsername(username);
      if(client.getPassword()==password){
-         return true;
+         return client;
      }else{
-        return false;
+        return client;
      }
     }
 }

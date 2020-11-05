@@ -13,7 +13,7 @@ import fr.alma.today.service.UserService;
 
 import java.util.List;
 
-public class ShopMethods {
+public class ShopMethods implements Shop{
 
     private ProductService productService = new ProductService();
     private CartService cartService = new CartService();
