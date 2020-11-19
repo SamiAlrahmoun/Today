@@ -3,23 +3,38 @@ package fr.alma.today.shopMethods;
 import fr.alma.today.models.Cart;
 import fr.alma.today.models.Order;
 import fr.alma.today.models.Product;
+import fr.alma.today.models.User;
 import fr.alma.today.repository.CartRepository;
 import fr.alma.today.repository.ProductRepository;
-import fr.alma.today.repository.UserRepository;
 import fr.alma.today.service.CartService;
 import fr.alma.today.service.OrderService;
 import fr.alma.today.service.ProductService;
-import fr.alma.today.service.UserService;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
-public class ShopMethods implements Shop{
+public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
 
     private ProductService productService = new ProductService();
     private CartService cartService = new CartService();
     private OrderService orderService = new OrderService();
     private CartRepository cartRepository;
     private ProductRepository productRepository;
+    private AuthMethods auth = new AuthMethods();
+    public ShopMethods() throws RemoteException {
+        super();
+    }
+
+
+    public User login(String username, String password){
+       return this.auth.login(username,password);
+    }
+
+
+    public User register(String username, String email, String password){
+        return this.auth.register(username,email,password);
+    }
 
 
 
@@ -53,8 +68,6 @@ public class ShopMethods implements Shop{
             return cartService.removeToCart(cartId, productID);
         }
 
-
-
     }
     //block of synchronisation
     public synchronized Product EditProduct(String productID,String name,String description, double price, Integer quantity){
@@ -64,9 +77,6 @@ public class ShopMethods implements Shop{
             Product product = new Product(productID,name,description,price,quantity);
             return productService.modifyProduct(product);
         }
-
-
-
     }
 
     //block of synchronisation

@@ -6,12 +6,15 @@ import fr.alma.today.service.CartService;
 import fr.alma.today.service.UserService;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-public class AuthMethods implements Auth{
+public class AuthMethods {
     private  MongoTemplate mongoTemplate;
     private  UserRepository userRepo ;
     private  CartRepository cartRepository;
     private UserService userService = new UserService();
     private CartService cartService = new CartService();
+
+
+
     public User register(String username,String email,String password){
         Cart cart= new Cart();
         cart = cartRepository.save(cart);

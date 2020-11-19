@@ -1,42 +1,35 @@
 package fr.alma.today;
 
-import java.rmi.Naming;
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
+import fr.alma.today.shopMethods.ShopMethods;
+
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 
-public class Server extends UnicastRemoteObject implements RMIInterface{
+public class Server   {
 
-    private static final long serialVersionUID = 1L;
 
-    protected Server() throws RemoteException {
 
-        super();
-
-    }
-
-    @Override
-    public String helloTo(String name) throws RemoteException{
-
-        System.err.println(name + " is trying to contact!");
-        return "Server says hello to " + name;
-
-    }
 
     public static void main(String[] args){
 
-        try {
 
-            Naming.rebind("rmi://localhost:3500/", new Server());
-            System.err.println("Server ready");
-
-        } catch (Exception e) {
-
-            System.err.println("Server exception: " + e.toString());
-            e.printStackTrace();
-
-        }
+//            String url = "rmi://" + InetAddress.getLocalHost().getHostAddress()+"/authentication" ;
+//            Registry rgsty = LocateRegistry.createRegistry(5000);
+//            AuthMethods authentication = new AuthMethods();
+//            ShopMethods shopping = new ShopMethods();
+//            rgsty.rebind("authenticate", authentication);
+            try {
+                Registry registry = LocateRegistry.createRegistry(5099);
+                registry.bind("today", new ShopMethods());
+                System.out.println("Server is connected and waiting for the client");
+            }
+            catch(Exception e) {
+                System.out.println("Server could not connect: "+e);
+            }
 
     }
 
-}
+
+    }
+
