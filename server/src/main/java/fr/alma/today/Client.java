@@ -1,6 +1,8 @@
 package fr.alma.today;
 
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoDatabase;
 import fr.alma.today.models.User;
 import fr.alma.today.shopMethods.ShopInterfarce;
 
@@ -19,7 +21,8 @@ public class Client{
     public static void main(String[] args){
 
         try {
-            ShopInterfarce today=(ShopInterfarce)Naming.lookup("rmi://localhost:5099/today");
+          ShopInterfarce today=(ShopInterfarce)Naming.lookup("rmi://localhost:1099/today");
+
             User user = today.register("Marvel","darkmarvel@gmail.com","123456789");
             // Calling the remote method using the obtained object
      System.out.println(user.toString());

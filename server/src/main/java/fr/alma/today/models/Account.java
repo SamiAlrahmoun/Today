@@ -1,21 +1,19 @@
 package fr.alma.today.models;
-
+import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Id;
-import java.io.Serializable;
-
 @Document(collection = "Accounts")
-public class Account implements Serializable {
+public class Account {
 
-    @Id
     private String id;
+    @BsonProperty(value = "user_id")
     private boolean status;
     private String name;
     private Double amount;
 
-    public Account(String  name) {
+    public Account(String  name,String email) {
         this.name = name;
+        this.id = email;
         this.status = false;
         this.amount = freeAmount();
 

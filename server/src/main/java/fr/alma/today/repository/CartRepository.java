@@ -8,10 +8,9 @@ import fr.alma.today.models.User;
 
 import java.util.List;
 
+@Repository
 public interface CartRepository extends MongoRepository<Cart, Integer> {
-    Cart findByUsername(String id);
-    Cart findById(String id);
-    List<Cart> findAll(String id);
-
-
+    Cart findCartByCartId(Integer id);
+    //Cart findById(Integer id);
+    List<Cart> findAll();
 }

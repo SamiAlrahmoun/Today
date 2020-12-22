@@ -9,7 +9,8 @@ import fr.alma.today.models.Cart;
 import fr.alma.today.models.User;
 
 
+@Repository
 public interface AccountRepository extends MongoRepository<Account, Integer>{
-    Account findById(String id);
-    void deleteById(String id);
+    Account findAccountBy(Integer id);
+    void deleteById(Integer id);
 }

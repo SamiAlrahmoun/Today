@@ -12,7 +12,7 @@ public interface ProductRepository extends MongoRepository<Product, Integer> {
      * Find all Products in the database
      * @return a Array list of products
      */
-    ArrayList<Product> findAll();
+  //  ArrayList<Product> findAll();
 
     /**
      * Find a product in the database using its id
@@ -20,7 +20,7 @@ public interface ProductRepository extends MongoRepository<Product, Integer> {
      * @param id  of the territory
      * @return a Territory if the id matches
      */
-    Product findById(String id);
-    void deleteById(String id);
+    Product findProductById(Integer id);
+    void deleteById(Integer id);
 
 }

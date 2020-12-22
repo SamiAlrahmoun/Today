@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import fr.alma.today.models.Order;
 
 
+@Repository
 public interface OrderRepository extends MongoRepository<Order, Integer>{
 
 }

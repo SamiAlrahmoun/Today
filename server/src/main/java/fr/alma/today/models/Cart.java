@@ -1,28 +1,23 @@
 package fr.alma.today.models;
 
-import org.springframework.data.annotation.Id;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.Objects;
 
-@Document
-
+@Document(collection = "Cart")
 public class Cart implements Serializable {
-    @Id
-    @NotNull
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String cartId;
+    @BsonProperty(value = "cart_id")
     private List<Product> products = new ArrayList<Product>() ;
     private Double total ;
     private Integer size ;
 
-    public Cart(){
+    public Cart(String s){
+        this.cartId = s;
         this.size = 0;
         this.total = 0.0;
     }
@@ -85,11 +80,27 @@ public class Cart implements Serializable {
 
     @Override
     public String toString() {
-        return "Cart{" +
-                "cartId=" + cartId +
-                ", products=" + products +
-                '}';
+        final StringBuffer sb = new StringBuffer("Grade{");
+        sb.append("id=").append(cartId);
+        sb.append(", total=").append(total);
+        sb.append(", size=").append(size);
+        sb.append(", products=").append(products);
+        sb.append('}');
+        return sb.toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Cart cart = (Cart) o;
+        return Objects.equals(cartId, cart.cartId) && Objects.equals(size, cart.size) && Objects.equals(total,
+                cart.total) && Objects
+                .equals(products, cart.cartId);
+    }
+
     
 
 }

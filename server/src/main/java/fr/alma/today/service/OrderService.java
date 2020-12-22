@@ -7,14 +7,18 @@ import fr.alma.today.repository.CartRepository;
 import fr.alma.today.repository.OrderRepository;
 import fr.alma.today.repository.ProductRepository;
 import fr.alma.today.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class OrderService {
+    @Autowired
     private UserRepository userRepository;
+    @Autowired
     private CartRepository cartRepository;
+    @Autowired
     private OrderRepository orderRepository;
-    public Order buy (String id, String cardId, String addess){
-        User client = userRepository.findById(id);
-        Cart cart = cartRepository.findById(cardId);
+    public Order buy (Integer id, Integer cardId, String addess){
+        User client = userRepository.findUserByIdById(id);
+        Cart cart = cartRepository.findCartByCartId(cardId);
         Order order = new Order(client.getUsername(), client.getEmail(), addess, cart.getProducts(),cart.getTotal(),cart.getSize());
         return orderRepository.save(order);
     }

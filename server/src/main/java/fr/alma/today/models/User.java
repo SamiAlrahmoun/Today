@@ -1,16 +1,22 @@
 package fr.alma.today.models;
+import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
-import javax.persistence.Id;
-import java.io.Serializable;
 
 @Document(collection = "Users")
-public class User implements Serializable {
+public class User {
 
-    @Id
-    private String id;
+
+
+    private ObjectId id;
+    @BsonProperty(value = "user_id")
+    private ObjectId cardId;
+    @BsonProperty(value = "card_id")
     private String username;
-    private String cardId;
-    private String accountId;
+    @BsonProperty(value = "username")
+
+    private ObjectId accountId;
+    @BsonProperty(value = "card_id")
     private String email;
     private String password;
 
@@ -21,7 +27,13 @@ public class User implements Serializable {
      * @param email    the password
      * @param password the password
      */
-    public User( String accountId,String cardId,String username, String email, String password) {
+    public User(String username, String email, String password) {
+        this.accountId = accountId;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+    public User(ObjectId accountId, ObjectId cardId, String username, String email, String password) {
         this.cardId = cardId;
         this.accountId = accountId;
         this.username = username;
@@ -34,13 +46,13 @@ public class User implements Serializable {
     /**
      * @return the id
      */
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
     /**
      * @param id the new password
      */
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -72,19 +84,19 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getCardId() {
+    public ObjectId getCardId() {
         return cardId;
     }
 
-    public void setCardId(String cardID) {
+    public void setCardId(ObjectId cardID) {
         this.cardId = cardID;
     }
 
-    public String getAccountId() {
+    public ObjectId getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(String accountId) {
+    public void setAccountId(ObjectId accountId) {
         this.accountId = accountId;
     }
 

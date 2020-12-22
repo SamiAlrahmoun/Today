@@ -1,16 +1,15 @@
 package fr.alma.today.models;
 
+import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Id;
-import java.io.Serializable;
 
-@Document(collection = "Products")
-public class Product implements Serializable {
-    @Id
-    private String id;
+public class Product  {
+
+    private ObjectId id;
+    @BsonProperty(value = "product_id")
     private String name;
     private String description;
     @Indexed(direction = IndexDirection.ASCENDING)
@@ -23,7 +22,7 @@ public class Product implements Serializable {
     public Product() {
         this.locked = false;
     }
-    public Product(String productID,String name,String description, double price, Integer quantity){
+    public Product(ObjectId productID, String name, String description, double price, Integer quantity){
         this.id = productID;
         this.name= name;
         this.description = description;
@@ -35,14 +34,14 @@ public class Product implements Serializable {
     /**
      * @return the id
      */
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
     /**
      * @param id the new password
      */
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 

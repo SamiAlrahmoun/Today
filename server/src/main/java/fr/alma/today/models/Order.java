@@ -1,5 +1,7 @@
 package fr.alma.today.models;
 
+import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,16 +14,11 @@ import java.util.HashSet;
 import java.util.List;
 
 @Document(collection = "Orders")
-public class Order implements Serializable {
-    private static final long serialVersionUID = -3819883511505235030L;
+public class Order  {
+    //private static final long serialVersionUID = -3819883511505235030L;
 
-    @Id
-    @NotNull
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long orderId;
-    @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            mappedBy = "orderMain")
+    private ObjectId id;
+    @BsonProperty(value = "order_id")
     /*private Set<ProductInOrder> products = new HashSet<>();*/
     private String username;
     private String email;

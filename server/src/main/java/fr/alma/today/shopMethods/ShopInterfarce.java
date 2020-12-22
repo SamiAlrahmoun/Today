@@ -15,24 +15,24 @@ public interface ShopInterfarce extends Remote {
 
     public User login(String username, String password) throws RemoteException;
 
-    public Product readProduct(String productId) throws RemoteException;
+    public Product readProduct(Integer productId) throws RemoteException;
 
-    public List<Cart> readCart(String cardId) throws RemoteException;
+    public List<Cart> readCart(Integer cardId) throws RemoteException;
 
-    public Order buy(String id, String cardId, String Address) throws RemoteException;
+    public Order buy(Integer id, Integer cardId, String Address) throws RemoteException;
 
-    public Cart addToCart(String cartId, String productID) throws RemoteException;
+    public Cart addToCart(Integer cartId, Integer productID) throws RemoteException;
 
-    public Cart removeFromCart(String cartId, String productID) throws RemoteException;
+    public Cart removeFromCart(Integer cartId, Integer productID) throws RemoteException;
 
-    public Product EditProduct(String productID,String name,String description, double price, Integer quantity) throws RemoteException;
+    public Product EditProduct(Integer productID,String name,String description, double price, Integer quantity) throws RemoteException;
 
-    public boolean deletProduct(String productId) throws RemoteException;
+    public boolean deletProduct(Integer productId) throws RemoteException;
 
     public void lockedCartProduct(List<Product> products) throws RemoteException;
 
     public void lockedProduct(Product product) throws RemoteException;
 
-    public boolean isLocked (String productId) throws RemoteException;
+    public boolean isLocked (Integer productId) throws RemoteException;
 
 }
