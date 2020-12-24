@@ -14,6 +14,7 @@ import com.mongodb.client.model.Filters;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
@@ -43,52 +44,68 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
 
 
     //to block of synchronisation
-    public Product readProduct(Integer productId){
-       return productService.getProductById(productId);
+    public Product readProduct(String productId){
+       return productService.getProduct(productId, this.database );
     }
     //to block of synchronisation
-    public List<Cart> readCart(Integer cardId){
-        return cartService.mCart(cardId);
+    public List<Cart> readCart(String cardId){
+        return cartService.mCart(cardId, this.database);
     }
-    // to do block de synchronization
-    public synchronized Order buy(Integer id, Integer cardId, String Address){
-        this.database.getCollection("Cart").find(Filters.eq("_id", cardId)).first().toJson();
-     Cart cart=  new Cart() ;
+
+
+
+    public synchronized Order buy(String id, String cardId, String Address)throws RemoteException{
+
+        Cart cart  =  cartService.getCart(cardId,this.database);
+
         // cart = cartRepository.findCartByCartId(cardId);
         lockedCartProduct(cart.getProducts());
         ///after the block of  synchronisation
-        return orderService.buy(id,cardId,Address);
+        return orderService.buy(id,cardId,Address,this.database);
 
     }
 
 
     //to do block of sybchromisation
-    public Cart addToCart(Integer cartId, Integer productID){
-        return   cartService.addToCart(cartId, productID);
+    public Cart addToCart(String cartId, String productID){
+        return   cartService.addToCart(cartId, productID, this.database);
 
     }
-    public synchronized Cart removeFromCart(String cartId, Integer productID){
+    public synchronized Cart removeFromCart(String cartId, String productID){
         if(isLocked(productID)){
             return cartService.getCart(cartId, this.database);
         }else{
-            return cartService.removeToCart(cartId, productID);
+            return cartService.removeToCart(cartId, productID, this.database);
         }
 
     }
+
+    public void addProduct (String productID, String name, String description, double price, Integer quantity){
+        Product product = new Product(productID,name,description,price, quantity);
+        this.productService.saveProduct(product,this.database);
+    }
+
     //block of synchronisation
-    public synchronized Product EditProduct(Integer productID,String name,String description, double price, Integer quantity){
+    public synchronized Product EditProduct(String productID,String name,String description, double price, Integer quantity){
+
         if(isLocked(productID)){
-            return productService.getProductById(productID);
+            return null;
         }else{
+
             Product product = new Product(productID,name,description,price,quantity);
-            return productService.modifyProduct(product);
+            product.setId(productID);
+            return productService.modifyProduct(product, database);
         }
     }
 
+    public ArrayList<Product> getAllProduct(){
+      return (ArrayList<Product>) productService.getProductList(this.database);
+    }
+
     //block of synchronisation
-    public synchronized boolean deletProduct(Integer productId){
+    public synchronized boolean removeProduct(String productId) throws RemoteException{
         if(isLocked(productId)){
-            return productService.deleteProduct(productId);
+            return productService.deleteProduct(productId,this.database );
         }else{
             return false;
         }
@@ -102,10 +119,10 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
    }
    public void lockedProduct(Product product){
        product.setLocked(true);
-       productRepository.save(product);
+       productService.modifyProduct(product,this.database);
    }
-   public boolean isLocked (Integer productId){
-      return   productRepository.findProductById(productId).isLocked();
+   public boolean isLocked (String productId){
+      return   productService.getProduct(productId,this.database).isLocked();
    }
 
 }

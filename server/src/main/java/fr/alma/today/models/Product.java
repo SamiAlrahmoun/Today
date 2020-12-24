@@ -1,14 +1,13 @@
 package fr.alma.today.models;
 
 import org.bson.codecs.pojo.annotations.BsonProperty;
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 
 
 public class Product  {
 
-    private ObjectId id;
+    private String id;
     @BsonProperty(value = "product_id")
     private String name;
     private String description;
@@ -22,7 +21,7 @@ public class Product  {
     public Product() {
         this.locked = false;
     }
-    public Product(ObjectId productID, String name, String description, double price, Integer quantity){
+    public Product(String productID, String name, String description, double price, Integer quantity){
         this.id = productID;
         this.name= name;
         this.description = description;
@@ -31,17 +30,19 @@ public class Product  {
         this.locked = false;
     }
 
+
+
     /**
      * @return the id
      */
-    public ObjectId getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the new password
      */
-    public void setId(ObjectId id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -119,7 +120,7 @@ public class Product  {
     /**
      * @param amount the new amount
      */
-    public void setAmount(int amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

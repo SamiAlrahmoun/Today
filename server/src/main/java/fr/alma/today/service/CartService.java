@@ -27,19 +27,19 @@ public class CartService {
 
         // find this grade.
        // Grade grade = grades.find(eq("student_id", 10003d)).first();
-        System.out.println(this.cartRepository);
+
 
        // return cartRepository.save(cart);
     }
     public Cart getCart(String cardId, MongoDatabase database){
-        return database.getCollection("Cart", Cart.class).find(Filters.eq("user_id", cardId)).first()
+        return database.getCollection("Cart", Cart.class).find(Filters.eq("user_id", cardId)).first();
     }
-    public List<Cart> mCart(Integer cardId){
+    public List<Cart> mCart( String id, MongoDatabase database){
         return cartRepository.findAll();
     }
 
-    public Cart addToCart(String cartId, Integer productID, MongoDatabase database){
-        Product product = productService.getProductById(productID);
+    public Cart addToCart(String cartId, String productID, MongoDatabase database){
+        Product product = productService.getProduct(productID,database);
         Cart cart  = getCart(cartId, database);
         cart.getProducts().removeIf((Predicate<? super Product>) product);
         cart.setSize(cart.getProducts().size());
@@ -47,12 +47,10 @@ public class CartService {
         return cartRepository.save(cart);
     }
 
-    public  Cart removeToCart(Integer cartId, Integer productID) {
-        Product product = productService.getProductById(productID);
-        Cart cart = getCart(cartId);
+    public  Cart removeToCart(String cartId, String productID, MongoDatabase database) {
+        Product product = productService.getProduct(productID,database);
+        Cart cart = getCart(cartId, database);
         cart.getProducts().add(product);
-
-
 
         cart.setSize(cart.getProducts().size());
         cart.setTotal(cart.cartPrice(cart.getProducts()));

@@ -20,6 +20,10 @@ public class UserService {
        MongoCollection<User> user = database.getCollection("User", User.class);
        return   user.find(Filters.eq("username", username)).first();
     }
+    public User getCustomerById(String userId,MongoDatabase database ) {
+        MongoCollection<User> user = database.getCollection("User", User.class);
+        return   user.find(Filters.eq("user_id", userId)).first();
+    }
 
     public User saveUser(User user, MongoDatabase database){
         MongoCollection<User> users = database.getCollection("User", User.class);
