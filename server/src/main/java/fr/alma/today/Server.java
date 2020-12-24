@@ -50,8 +50,8 @@ public class Server   {
 
 
 
-            try (MongoClient mongoClient =  MongoClients.create(clientSettings)){
 
+            try (MongoClient mongoClient =  MongoClients.create(clientSettings)) {
                 MongoDatabase database = mongoClient.getDatabase("today");
                 Registry registry = LocateRegistry.createRegistry(1099);
              registry.bind("today", new ShopMethods(database));

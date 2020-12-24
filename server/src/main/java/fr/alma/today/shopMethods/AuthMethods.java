@@ -12,8 +12,8 @@ public class AuthMethods {
 
    // private  CartRepository cartRepository;
     private UserService userService = new UserService();
-    private CartService cartService;
-    private AccountService accountService;
+    private CartService cartService = new CartService();
+    private AccountService accountService = new AccountService();
 
     private MongoDatabase database;
 
@@ -25,6 +25,7 @@ public class AuthMethods {
 
     public User register(String username,String email,String password){
         Cart cart= new Cart(email);
+        System.out.println(this.database);
         this.cartService.saveCart(cart, this.database);
         Account account = new Account(username,email);
         this.accountService.saveAccount(account,database);
