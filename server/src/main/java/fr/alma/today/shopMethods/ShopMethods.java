@@ -4,8 +4,7 @@ import fr.alma.today.models.Cart;
 import fr.alma.today.models.Order;
 import fr.alma.today.models.Product;
 import fr.alma.today.models.User;
-import fr.alma.today.repository.CartRepository;
-import fr.alma.today.repository.ProductRepository;
+
 import fr.alma.today.service.CartService;
 import fr.alma.today.service.OrderService;
 import fr.alma.today.service.ProductService;
@@ -49,7 +48,7 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
     }
     //to block of synchronisation
     public List<Cart> readCart(String cardId){
-        return cartService.mCart(cardId, this.database);
+        return (List<Cart>) cartService.getCart(cardId, this.database);
     }
 
 
@@ -80,9 +79,10 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
 
     }
 
-    public void addProduct (String productID, String name, String description, double price, Integer quantity){
+    public Product addProduct (String productID, String name, String description, double price, Integer quantity){
         Product product = new Product(productID,name,description,price, quantity);
-        this.productService.saveProduct(product,this.database);
+    this.productService.saveProduct(product,this.database);
+    return product;
     }
 
     //block of synchronisation

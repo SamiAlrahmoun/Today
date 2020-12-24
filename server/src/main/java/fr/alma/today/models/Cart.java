@@ -1,14 +1,13 @@
 package fr.alma.today.models;
 
 import org.bson.codecs.pojo.annotations.BsonProperty;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Document(collection = "Cart")
+
 public class Cart implements Serializable {
     private String cartId;
     @BsonProperty(value = "cart_id")
@@ -71,7 +70,9 @@ public class Cart implements Serializable {
     }
 
     public void removeToCArt(Product item){
-        this.products.removeIf(prod->prod.getId()==item.getId());
+
+        this.products.removeIf(prod->prod.getId()==item.getId()
+        );
     }
     public void removeAll(){
         this.getItems().clear();

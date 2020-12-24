@@ -1,21 +1,15 @@
 package fr.alma.today.shopMethods;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
 import fr.alma.today.models.*;
-import fr.alma.today.repository.CartRepository;
-import fr.alma.today.repository.UserRepository;
+
 import fr.alma.today.service.AccountService;
 import fr.alma.today.service.CartService;
 import fr.alma.today.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 
 public class AuthMethods {
-    private  MongoTemplate mongoTemplate;
-    @Autowired
-    private  UserRepository userRepo ;
-    @Autowired
-    private CartRepository cartRepository ;
+
+
    // private  CartRepository cartRepository;
     private UserService userService = new UserService();
     private CartService cartService;

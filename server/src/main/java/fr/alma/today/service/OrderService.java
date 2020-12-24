@@ -1,17 +1,12 @@
 package fr.alma.today.service;
 
 
-import com.mongodb.MongoClient;
+
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import fr.alma.today.models.*;
 import fr.alma.today.models.Order;
-import fr.alma.today.repository.CartRepository;
-import fr.alma.today.repository.OrderRepository;
-import fr.alma.today.repository.ProductRepository;
-import fr.alma.today.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class OrderService {
  private UserService userService;

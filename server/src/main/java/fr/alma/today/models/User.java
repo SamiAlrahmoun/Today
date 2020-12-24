@@ -1,9 +1,8 @@
 package fr.alma.today.models;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Users")
+
 public class User {
 
 

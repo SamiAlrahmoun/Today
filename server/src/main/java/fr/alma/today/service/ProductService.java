@@ -10,8 +10,7 @@ import com.mongodb.client.result.UpdateResult;
 import fr.alma.today.models.Cart;
 import fr.alma.today.models.Order;
 import fr.alma.today.models.Product;
-import fr.alma.today.repository.OrderRepository;
-import fr.alma.today.repository.ProductRepository;
+
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +23,6 @@ import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.set;
 
 public class ProductService {
-    @Autowired
-
-
-    private ProductRepository productRepository;
-
 
     public void saveProduct(Product product, MongoDatabase database){
         MongoCollection<Product> products = database.getCollection("Product", Product.class);

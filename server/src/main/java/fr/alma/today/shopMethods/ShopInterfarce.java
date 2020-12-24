@@ -28,8 +28,8 @@ public interface ShopInterfarce extends Remote {
     public Cart removeFromCart(String cartId, String productID) throws RemoteException;
 
     public Product EditProduct(String productID,String name,String description, double price, Integer quantity) throws RemoteException;
-    public void addProduct (String productID, String name, String description, double price, Integer quantity);
-    public ArrayList<Product> getAllProduct();
+    public Product addProduct (String productID, String name, String description, double price, Integer quantity) throws RemoteException;;
+    public ArrayList<Product> getAllProduct() throws RemoteException;;
     public boolean removeProduct(String productId) throws RemoteException;
 
     public void lockedCartProduct(List<Product> products) throws RemoteException;

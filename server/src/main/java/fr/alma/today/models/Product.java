@@ -1,8 +1,6 @@
 package fr.alma.today.models;
 
 import org.bson.codecs.pojo.annotations.BsonProperty;
-import org.springframework.data.mongodb.core.index.IndexDirection;
-import org.springframework.data.mongodb.core.index.Indexed;
 
 
 public class Product  {
@@ -11,7 +9,7 @@ public class Product  {
     @BsonProperty(value = "product_id")
     private String name;
     private String description;
-    @Indexed(direction = IndexDirection.ASCENDING)
+
     private String createdAt;
     private Integer quantity;
     private double amount;

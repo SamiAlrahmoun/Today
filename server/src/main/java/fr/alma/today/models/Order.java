@@ -2,18 +2,10 @@ package fr.alma.today.models;
 
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.List;
 
-@Document(collection = "Orders")
+
 public class Order  {
     //private static final long serialVersionUID = -3819883511505235030L;
 
@@ -51,6 +43,62 @@ public class Order  {
         this.price = price;
         this.quantity = quantity;
 
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public ObjectId getId() {
+        return id;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setId(ObjectId id) {
+        this.id = id;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
 }
