@@ -1,7 +1,0 @@
-service/OrderedProductService.class
-Payment.class
-fr/alma/today/repository/ProductInformationRepo.class
-service/CategoryService.class
-fr/alma/today/repository/ProductCategoryRepo.class
-service/OrderService.class
-ClientServerInterface.class
