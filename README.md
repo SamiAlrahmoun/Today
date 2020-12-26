@@ -1,4 +1,4 @@
-# Java Quick Start Project
+# Today Project
 
 This repository contains code samples for the Quick Start blog post series.
 
@@ -80,5 +80,6 @@ mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.ChangeStreams" -D
 ```
 
 # Author
-
-Maxime Beugnet <maxime@mongodb.com>
+Mamadou Oury DIALLO
+Marvel OYOGHO LAWSON
+Sami AL RAHMOUN
