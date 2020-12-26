@@ -3,6 +3,7 @@ package fr.alma.today;
 
 
 import com.mongodb.client.MongoDatabase;
+import fr.alma.today.models.Product;
 import fr.alma.today.models.User;
 import fr.alma.today.shopMethods.ShopInterfarce;
 
@@ -16,17 +17,23 @@ import java.rmi.registry.Registry;
 
 import javax.swing.JOptionPane;
 
-public class Client implements ClientInterface{
+public class Client {
 
     public static void main(String[] args){
 
         try {
           ShopInterfarce today=(ShopInterfarce)Naming.lookup("rmi://localhost:1099/today");
 
-
-            User user = today.login("Marvel","123456789");
+          //register user
+           // User user = today.register("Marvel","darkmarvel@gmail.com","123456789");
+            //login user
+          //  User user = today.login("Marvel","123456789");
+            // System.out.println(user.getEmail());
+            //adding a product
+          //  Product product = today.addProduct("darkmarvel@gmail.com","shoes", "Stan Smith Addidas",120,2);
+            // System.out.println(product.isLocked());
             // Calling the remote method using the obtained object
-     System.out.println(user.getEmail());
+
             // System.out.println(list);
         } catch (Exception e) {
             System.err.println("Client exception: " + e.toString());
@@ -34,8 +41,5 @@ public class Client implements ClientInterface{
         }
     }
 
-    @Override
-    public User getUser(String username, String passs) {
-        return null;
-    }
+
 }
