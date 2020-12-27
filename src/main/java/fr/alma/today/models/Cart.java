@@ -16,6 +16,10 @@ public class Cart implements Serializable {
     private Double total ;
     private Integer size ;
 
+    public Cart(){
+
+    }
+
     public Cart(String s){
         this.cartId = s;
         this.size = 0;
@@ -44,10 +48,16 @@ public class Cart implements Serializable {
     }
     public Double cartPrice(List<Product> products){
         Double sum = 0.0;
-        for (Product product:products) {
-            sum += product.getAmount();
+        if (products.size()>0) {
+            System.out.println("product size :"+products.size());
+
+            for (Product product : products) {
+            //    System.out.println("product size :"+product.toString());
+                sum += product.getAmount();
+            }
         }
         return sum;
+
     }
 
     public Double getTotal() {
@@ -79,10 +89,13 @@ public class Cart implements Serializable {
         this.getItems().clear();
     }
 
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Grade{");
+        final StringBuffer sb = new StringBuffer("Cart{");
         sb.append("id=").append(cartId);
         sb.append(", total=").append(total);
         sb.append(", size=").append(size);

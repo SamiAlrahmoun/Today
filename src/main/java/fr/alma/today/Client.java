@@ -2,6 +2,7 @@ package fr.alma.today;
 
 
 
+
 import com.mongodb.client.MongoDatabase;
 import fr.alma.today.models.Product;
 import fr.alma.today.models.User;
@@ -30,8 +31,12 @@ public class Client {
           //  User user = today.login("Marvel","123456789");
             // System.out.println(user.getEmail());
             //adding a product
-          //  Product product = today.addProduct("darkmarvel@gmail.com","shoes", "Stan Smith Addidas",120,2);
-            // System.out.println(product.isLocked());
+          // Product product = today.addProduct("darkmarvel@gmail.com","shoes", "Stan Smith Addidas",120,2);
+          //  Product product = today.addProduct("Jeans","Jean droit 501", "Jean bleu Levi's ",89,2);
+          //  System.out.println(product.toString());
+            System.out.println(today.addToCart("darkmarvel@gmail.com","Jeans-be3d8c5a-bf54-4e3e-b29b-26808cd9ceb0").toString());
+          //  today.addToCart("darkmarvel@gmail.com","Jeans-be3d8c5a-bf54-4e3e-b29b-26808cd9ceb0");
+
             // Calling the remote method using the obtained object
 
             // System.out.println(list);

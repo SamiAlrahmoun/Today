@@ -33,7 +33,7 @@ public class ProductService {
         // return cartRepository.save(cart);
     }
     public Product getProduct(String prod, MongoDatabase database){
-        return database.getCollection("Product", Product.class).find(Filters.eq("user_id", prod)).first();
+        return database.getCollection("Product", Product.class).find(Filters.eq("product_id", prod)).first();
     }
 
    public List<Product> getProductList(MongoDatabase db) {

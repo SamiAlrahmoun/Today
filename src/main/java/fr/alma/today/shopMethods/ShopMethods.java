@@ -66,7 +66,10 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
 
 
     //to do block of sybchromisation
-    public Cart addToCart(String cartId, String productID){
+    public synchronized Cart addToCart(String cartId, String productID) throws InterruptedException {
+        while (isLocked(productID)){
+            wait();
+        }
         return   cartService.addToCart(cartId, productID, this.database);
 
     }
@@ -121,6 +124,11 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
        product.setLocked(true);
        productService.modifyProduct(product,this.database);
    }
+    public void unlockedProduct(Product product){
+        product.setLocked(false);
+        notifyAll();
+        productService.modifyProduct(product,this.database);
+    }
    public boolean isLocked (String productId){
       return   productService.getProduct(productId,this.database).isLocked();
    }

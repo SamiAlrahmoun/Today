@@ -1,16 +1,16 @@
 package fr.alma.today.models;
 
 import org.bson.codecs.pojo.annotations.BsonProperty;
-import org.bson.types.ObjectId;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 
 public class Order  implements Serializable {
     private static final long serialVersionUID = -3819883511505235030L;
     @BsonProperty(value = "order_id")
-    private ObjectId id;
+    private String id;
 
     /*private Set<ProductInOrder> products = new HashSet<>();*/
     private String username;
@@ -37,6 +37,7 @@ public class Order  implements Serializable {
 
     }
     public Order (String username,String email, String address, List<Product> products, Double price, Integer quantity){
+        this.id = generateString(username);
         this.username =username;
         this.email =  email;
         this.address = address;
@@ -58,7 +59,7 @@ public class Order  implements Serializable {
         return products;
     }
 
-    public ObjectId getId() {
+    public String getId() {
         return id;
     }
 
@@ -66,7 +67,7 @@ public class Order  implements Serializable {
         this.address = address;
     }
 
-    public void setId(ObjectId id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -101,6 +102,9 @@ public class Order  implements Serializable {
     public String getEmail() {
         return email;
     }
-
+    public static String generateString(String name) {
+        String uuid = UUID.randomUUID().toString();
+        return name+"-"+ uuid;
+    }
 }
 

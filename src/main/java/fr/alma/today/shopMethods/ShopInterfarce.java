@@ -23,7 +23,7 @@ public interface ShopInterfarce extends Remote {
 
     public  Order buy(String id, String cardId, String Address)throws RemoteException;
 
-    public Cart addToCart(String cartId, String productID) throws RemoteException;
+    public Cart addToCart(String cartId, String productID) throws RemoteException, InterruptedException;
 
     public Cart removeFromCart(String cartId, String productID) throws RemoteException;
 

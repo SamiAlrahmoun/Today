@@ -28,6 +28,7 @@ public class Update {
             // update one document
             Bson filter = eq("student_id", 10000);
             Bson updateOperation = set("comment", "You should learn MongoDB!");
+
             UpdateResult updateResult = gradesCollection.updateOne(filter, updateOperation);
             System.out.println("=> Updating the doc with {\"student_id\":10000}. Adding comment.");
             System.out.println(gradesCollection.find(filter).first().toJson(prettyPrint));

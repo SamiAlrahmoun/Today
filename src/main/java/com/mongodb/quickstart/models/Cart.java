@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Cart implements Serializable {
     private String cartId;
     @BsonProperty(value = "cart_id")
-    private List<Product> products = new ArrayList<Product>() ;
+    private List<Product> products;
     private Double total ;
     private Integer size ;
 
@@ -78,6 +78,9 @@ public class Cart implements Serializable {
         this.getItems().clear();
     }
 
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 
     @Override
     public String toString() {

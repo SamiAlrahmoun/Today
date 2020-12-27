@@ -21,7 +21,7 @@ public class Create {
 
     public static void main(String[] args) {
         ConnectionString connectionString = new ConnectionString("mongodb+srv://today:today123@cluster0.ny1qh.mongodb.net/today?retryWrites=true&w=majority");
-        try (MongoClient mongoClient = MongoClients.create(System.getProperty("mongodb.uri"))) {
+        try (MongoClient mongoClient = MongoClients.create(connectionString)) {
 
             MongoDatabase sampleTrainingDB = mongoClient.getDatabase("sample_training");
             MongoCollection<Document> gradesCollection = sampleTrainingDB.getCollection("grades");

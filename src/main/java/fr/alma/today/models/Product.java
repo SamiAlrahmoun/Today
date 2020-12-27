@@ -1,8 +1,11 @@
 package fr.alma.today.models;
 
 import org.bson.codecs.pojo.annotations.BsonProperty;
-
+import java.util.UUID;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class Product  implements Serializable {
@@ -18,16 +21,25 @@ public class Product  implements Serializable {
     //Object used for the Synchroniation
     private boolean locked;
 
+    SimpleDateFormat formater = null;
+
+    Date aujourdhui = new Date();
+
+
     public Product() {
         this.locked = false;
     }
     public Product(String productID, String name, String description, double price, Integer quantity){
-        this.id = productID;
+        formater = new SimpleDateFormat("'le' dd MMMM yyyy 'à' hh:mm:ss");
+       // System.out.println(formater.format(aujourdhui));
+
+        this.id = generateString(productID);
         this.name= name;
         this.description = description;
         this.amount = price;
         this.quantity = quantity;
         this.locked = false;
+        this.createdAt= formater.format(aujourdhui);
     }
 
 
@@ -123,5 +135,21 @@ public class Product  implements Serializable {
     public void setAmount(Double amount) {
         this.amount = amount;
     }
+    public static String generateString(String name) {
+        String uuid = UUID.randomUUID().toString();
+        return name+"-"+ uuid;
+    }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", createdAt='" + createdAt + '\'' +
+                ", quantity=" + quantity +
+                ", amount=" + amount +
+                ", locked=" + locked +
+                '}';
+    }
 }
