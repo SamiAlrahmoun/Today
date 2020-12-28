@@ -100,6 +100,18 @@ public class Client {
                         // Producer creation
                         //today.register("Producer","producer@gmail.com","123456789");
                         User user = today.login("Producer","123456789");
+                        if(!(user ==null)){
+                            today.addProduct("Jeans","Jean droit 501", "Jean bleu Levi's ",89,2);
+                            today.addProduct("Jeans","Jean droit 501", "Jean black Levi's ",89,2);
+                            today.addProduct("Jeans","Jean Men", "Jean bleu Celio ",45,1);
+                            today.addProduct("Pull","Pull col roule", "Pull col roule mango ",70,2);
+                            today.addProduct("Veste","veste Zara", "Veste noire Zara ",150,2);
+                            today.addProduct("Shirt","chemise homme", "chemise blanche pour homme ",89,2);
+                            today.addProduct("T-Shirt","T-shirt ", "T-shirt col rond Garçon en jersey de coton",30,2);
+                            today.addProduct("Shoes","Chaussures adidas", "adidas Originals, Stan Smith",100,3);
+                            today.addProduct("Shoes","Timberland", "Bottes de neige de couleur gris",200,2);
+
+                        }
                         System.out.println(user.toString());
                     }
                     catch ( RemoteException e) {
@@ -107,10 +119,10 @@ public class Client {
                     }
                 }
             });
-            client1.start();
-            client2.start();
-            client3.start();
-            producer.start();
+            //client1.start();
+           // client2.start();
+          //  client3.start();
+           // producer.start();
 
             // t1 finishes before t2
             //t1.join();
