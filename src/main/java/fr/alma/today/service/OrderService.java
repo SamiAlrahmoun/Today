@@ -17,9 +17,9 @@ public class OrderService {
         User client = this.userService.getCustomerById(cardId,database);
         Cart cart = this.cartService.getCart(cardId,database);
         Order order = new Order(client.getUsername(), client.getEmail(), addess, cart.getProducts(),cart.getTotal(),cart.getSize());
-        cart.getProducts().forEach(product -> {
-            database.getCollection("Product",Product.class).findOneAndUpdate(eq("product_id",product.getId()),inc("quantity", -1));
-        });
+       // cart.getProducts().forEach(product -> {
+        //    database.getCollection("Product",Product.class).findOneAndUpdate(eq("product_id",product.getId()),inc("quantity", -1));
+       // });
         MongoCollection<Order> orders = database.getCollection("Order", Order.class);
         orders.insertOne(order);
         // database.getCollection("Cart").find(Filters.eq("_id", cart)).first().toJson()

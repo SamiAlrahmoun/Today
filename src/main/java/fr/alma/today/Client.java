@@ -51,8 +51,16 @@ public class Client {
                        // today.register("Marvel","darkmarvel@gmail.com","123456789");
                         User user = today.login("Marvel","123456789");
                         System.out.println(user.toString());
+                        if(!(user ==null)){
+                            System.out.println(today.addToCart("darkmarvel@gmail.com","Jeans-610cf477-248b-45c4-b81e-f251a15e8ac2").toString());
+                            System.out.println(today.addToCart("darkmarvel@gmail.com","Shirt-9d149dea-ba4a-4981-b180-e23d6fe4f060").toString());
+                            System.out.println(today.addToCart("darkmarvel@gmail.com","Jeans-610cf477-248b-45c4-b81e-f251a15e8ac2").toString());
+                            System.out.println(today.addToCart("darkmarvel@gmail.com","Shoes-0bea0315-61b7-4e86-83a6-f7b29806ba2b").toString());
+                            System.out.println(today.buy("darkmarvel@gmail.com","15 Avenue de avenue felix vincent"));
+
+                        }
                     }
-                    catch (RemoteException e) {
+                    catch (RemoteException | InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
@@ -68,8 +76,16 @@ public class Client {
                        // today.register("Sami","sami@gmail.com","123456789");
                         User user = today.login("Sami","123456789");
                         System.out.println(user.toString());
+                        if(!(user ==null)){
+                            System.out.println(today.addToCart("sami@gmail.com","Jeans-610cf477-248b-45c4-b81e-f251a15e8ac2").toString());
+                            System.out.println(today.addToCart("sami@gmail.com","Shoes-f7a09001-49db-4fdc-9636-0438b45a5982").toString());
+                            System.out.println(today.addToCart("sami@gmail.com","Shirt-9d149dea-ba4a-4981-b180-e23d6fe4f060").toString());
+                            System.out.println(today.addToCart("sami@gmail.com","Shoes-0bea0315-61b7-4e86-83a6-f7b29806ba2b").toString());
+                            System.out.println(today.buy("sami@gmail.com","15 Avenue de avenue felix vincent"));
+
+                        }
                     }
-                    catch (RemoteException e) {
+                    catch (RemoteException | InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
@@ -85,8 +101,17 @@ public class Client {
                        // today.register("Oury","oury@gmail.com","123456789");
                         User user = today.login("Oury","123456789");
                         System.out.println(user.toString());
+                        if(!(user ==null)){
+                            System.out.println(today.addToCart("oury@gmail.com","Jeans-610cf477-248b-45c4-b81e-f251a15e8ac2").toString());
+                            System.out.println(today.addToCart("oury@gmail.com","Jeans-529179d5-9687-41b5-8e47-19c3e071bff8").toString());
+                            System.out.println(today.addToCart("oury@gmail.com","Shoes-f7a09001-49db-4fdc-9636-0438b45a5982").toString());
+                            System.out.println(today.addToCart("oury@gmail.com","Shoes-0bea0315-61b7-4e86-83a6-f7b29806ba2b").toString());
+                            System.out.println(today.buy("oury@gmail.com","15 Avenue de avenue felix vincent"));
+
+                        }
+
                     }
-                    catch (  RemoteException e) {
+                    catch (RemoteException | InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
@@ -101,15 +126,16 @@ public class Client {
                         //today.register("Producer","producer@gmail.com","123456789");
                         User user = today.login("Producer","123456789");
                         if(!(user ==null)){
-                            today.addProduct("Jeans","Jean droit 501", "Jean bleu Levi's ",89,2);
-                            today.addProduct("Jeans","Jean droit 501", "Jean black Levi's ",89,2);
-                            today.addProduct("Jeans","Jean Men", "Jean bleu Celio ",45,1);
-                            today.addProduct("Pull","Pull col roule", "Pull col roule mango ",70,2);
-                            today.addProduct("Veste","veste Zara", "Veste noire Zara ",150,2);
-                            today.addProduct("Shirt","chemise homme", "chemise blanche pour homme ",89,2);
-                            today.addProduct("T-Shirt","T-shirt ", "T-shirt col rond Garçon en jersey de coton",30,2);
-                            today.addProduct("Shoes","Chaussures adidas", "adidas Originals, Stan Smith",100,3);
-                            today.addProduct("Shoes","Timberland", "Bottes de neige de couleur gris",200,2);
+                            //Product added
+                            //today.addProduct("Jeans","Jean droit 501", "Jean bleu Levi's ",89,2);
+                            //today.addProduct("Jeans","Jean droit 501", "Jean black Levi's ",89,2);
+                            //today.addProduct("Jeans","Jean Men", "Jean bleu Celio ",45,1);
+                            //today.addProduct("Pull","Pull col roule", "Pull col roule mango ",70,2);
+                            //today.addProduct("Veste","veste Zara", "Veste noire Zara ",150,2);
+                            //today.addProduct("Shirt","chemise homme", "chemise blanche pour homme ",89,2);
+                            //today.addProduct("T-Shirt","T-shirt ", "T-shirt col rond Garçon en jersey de coton",30,2);
+                            //today.addProduct("Shoes","Chaussures adidas", "adidas Originals, Stan Smith",100,3);
+                           // today.addProduct("Shoes","Timberland", "Bottes de neige de couleur gris",200,2);
 
                         }
                         System.out.println(user.toString());
@@ -119,9 +145,9 @@ public class Client {
                     }
                 }
             });
-            //client1.start();
-           // client2.start();
-          //  client3.start();
+            client1.start();
+            client2.start();
+            client3.start();
            // producer.start();
 
             // t1 finishes before t2
