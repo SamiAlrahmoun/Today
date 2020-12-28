@@ -48,7 +48,75 @@ public class Client {
             //System.out.println(today.getAllProduct());
           //  System.out.println(today.buy("darkmarvel@gmail.com",""));
             //buy item
-            System.out.println(today.buy("darkmarvel@gmail.com","15 Avenue de avenue felix vincent"));
+           // System.out.println(today.buy("darkmarvel@gmail.com","15 Avenue de avenue felix vincent"));
+            // Create client thread
+            Thread client1 = new Thread(new Runnable() {
+                @Override
+                public void run()
+                {
+                    try {
+                        User user = today.login("Marvel","123456789");
+                        System.out.println(user.toString());
+                    }
+                    catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            // Create client thread
+            Thread client2 = new Thread(new Runnable() {
+                @Override
+                public void run()
+                {
+                    try {
+                        User user = today.login("Marvel","123456789");
+                        System.out.println(user.toString());
+                    }
+                    catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            // Create client thread
+            Thread client3 = new Thread(new Runnable() {
+                @Override
+                public void run()
+                {
+                    try {
+                        User user = today.login("Marvel","123456789");
+                        System.out.println(user.toString());
+                    }
+                    catch (  RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            // Create client thread
+            Thread client4 = new Thread(new Runnable() {
+                @Override
+                public void run()
+                {
+                    try {
+                        User user = today.login("Marvel","123456789");
+                        System.out.println(user.toString());
+                    }
+                    catch ( RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            client1.start();
+            client2.start();
+            client3.start();
+            client4.start();
+
+            // t1 finishes before t2
+            //t1.join();
+            //t2.join();
+            // t1 finishes before t2
+            //t1.join();
+            //t2.join();
 
         } catch (Exception e) {
             System.err.println("Client exception: " + e.toString());
