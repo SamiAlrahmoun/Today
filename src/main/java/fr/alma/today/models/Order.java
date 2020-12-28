@@ -20,20 +20,8 @@ public class Order  implements Serializable {
     private Double price;
     private Integer quantity;
 
-    /*
-    @NotNull
-    private BigDecimal orderAmount;
-    @NotNull
-    @ColumnDefault("0")
-    private Integer orderStatus;
-    */
-    public Order(User user) {
-        this.username = user.getUsername();
-        this.email = user.getEmail();
-            /*this.orderAmount = user.getCart().getProducts().stream().map(item -> item.getProductPrice().multiply(new BigDecimal(item.getCount())))
-                    .reduce(BigDecimal::add)
-                    .orElse(new BigDecimal(0));
-            this.orderStatus = 0;*/
+
+    public Order() {
 
     }
     public Order (String username,String email, String address, List<Product> products, Double price, Integer quantity){

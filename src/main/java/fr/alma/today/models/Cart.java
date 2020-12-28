@@ -81,9 +81,7 @@ public class Cart implements Serializable {
     }
 
     public void removeToCArt(Product item){
-
-        this.products.removeIf(prod->prod.getId()==item.getId()
-        );
+        this.products.removeIf(prod->prod.getId().equals(item.getId()));
     }
     public void removeAll(){
         this.getItems().clear();

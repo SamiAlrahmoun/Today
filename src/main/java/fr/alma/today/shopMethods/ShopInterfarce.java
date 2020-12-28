@@ -1,6 +1,5 @@
 package fr.alma.today.shopMethods;
 
-import com.mongodb.client.MongoDatabase;
 import fr.alma.today.models.Cart;
 import fr.alma.today.models.Order;
 import fr.alma.today.models.Product;
@@ -21,7 +20,7 @@ public interface ShopInterfarce extends Remote {
 
     public List<Cart> readCart(String cardId) throws RemoteException;
 
-    public  Order buy(String id, String cardId, String Address)throws RemoteException;
+    public  Order buy( String cardId, String Address)throws RemoteException;
 
     public Cart addToCart(String cartId, String productID) throws RemoteException, InterruptedException;
 

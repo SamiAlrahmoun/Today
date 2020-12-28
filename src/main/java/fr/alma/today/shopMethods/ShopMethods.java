@@ -9,7 +9,6 @@ import fr.alma.today.service.CartService;
 import fr.alma.today.service.OrderService;
 import fr.alma.today.service.ProductService;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -53,19 +52,19 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
 
 
 
-    public synchronized Order buy(String id, String cardId, String Address)throws RemoteException{
+    public synchronized Order buy( String cardId, String Address)throws RemoteException{
 
         Cart cart  =  cartService.getCart(cardId,this.database);
 
         // cart = cartRepository.findCartByCartId(cardId);
         lockedCartProduct(cart.getProducts());
         ///after the block of  synchronisation
-        return orderService.buy(id,cardId,Address,this.database);
+        return orderService.buy(cardId,Address,this.database);
 
     }
 
 
-    //to do block of sybchromisation
+    //to do block of synchromisation
     public synchronized Cart addToCart(String cartId, String productID) throws InterruptedException {
         while (isLocked(productID)){
             wait();
@@ -90,7 +89,6 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
 
     //block of synchronisation
     public synchronized Product EditProduct(String productID,String name,String description, double price, Integer quantity){
-
         if(isLocked(productID)){
             return null;
         }else{
@@ -102,16 +100,22 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
     }
 
     public ArrayList<Product> getAllProduct(){
-      return (ArrayList<Product>) productService.getProductList(this.database);
+      return productService.getProductList(this.database);
     }
 
     //block of synchronisation
     public synchronized boolean removeProduct(String productId) throws RemoteException{
-        if(isLocked(productId)){
-            return productService.deleteProduct(productId,this.database );
+        Product product = productService.getProduct(productId,this.database);
+        if (!(product==null)){
+            if(!isLocked(productId)){
+                return productService.deleteProduct(productId,this.database );
+            }else{
+                return false;
+            }
         }else{
-            return false;
+            return true;
         }
+
 
     }
 
@@ -130,6 +134,7 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
         productService.modifyProduct(product,this.database);
     }
    public boolean isLocked (String productId){
+        System.out.println("isLock:"+ productService.getProduct(productId,this.database).isLocked());
       return   productService.getProduct(productId,this.database).isLocked();
    }
 
