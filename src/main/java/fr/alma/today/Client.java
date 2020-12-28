@@ -3,20 +3,12 @@ package fr.alma.today;
 
 
 
-import com.mongodb.client.MongoDatabase;
-import fr.alma.today.models.Product;
+
 import fr.alma.today.models.User;
 import fr.alma.today.shopMethods.ShopInterfarce;
-
-import java.net.MalformedURLException;
 import java.rmi.Naming;
-import java.rmi.NotBoundException;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 
-import javax.swing.JOptionPane;
 
 public class Client {
 
@@ -55,6 +47,8 @@ public class Client {
                 public void run()
                 {
                     try {
+                        // user creation
+                       // today.register("Marvel","darkmarvel@gmail.com","123456789");
                         User user = today.login("Marvel","123456789");
                         System.out.println(user.toString());
                     }
@@ -70,7 +64,9 @@ public class Client {
                 public void run()
                 {
                     try {
-                        User user = today.login("Marvel","123456789");
+                        // user creation
+                       // today.register("Sami","sami@gmail.com","123456789");
+                        User user = today.login("Sami","123456789");
                         System.out.println(user.toString());
                     }
                     catch (RemoteException e) {
@@ -84,7 +80,10 @@ public class Client {
                 public void run()
                 {
                     try {
-                        User user = today.login("Marvel","123456789");
+
+                        // user creation
+                       // today.register("Oury","oury@gmail.com","123456789");
+                        User user = today.login("Oury","123456789");
                         System.out.println(user.toString());
                     }
                     catch (  RemoteException e) {
@@ -93,12 +92,14 @@ public class Client {
                 }
             });
             // Create client thread
-            Thread client4 = new Thread(new Runnable() {
+            Thread producer = new Thread(new Runnable() {
                 @Override
                 public void run()
                 {
                     try {
-                        User user = today.login("Marvel","123456789");
+                        // Producer creation
+                        //today.register("Producer","producer@gmail.com","123456789");
+                        User user = today.login("Producer","123456789");
                         System.out.println(user.toString());
                     }
                     catch ( RemoteException e) {
@@ -109,7 +110,7 @@ public class Client {
             client1.start();
             client2.start();
             client3.start();
-            client4.start();
+            producer.start();
 
             // t1 finishes before t2
             //t1.join();
