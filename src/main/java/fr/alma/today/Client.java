@@ -38,9 +38,13 @@ public class Client {
             //delet a produc
             // System.out.println(today.removeProduct("Jeans-be3d8c5a-bf54-4e3e-b29b-26808cd9ceb0"));
            //get all elements
-            //System.out.println(today.getAllProduct());
+            System.out.println("Avant l'execution\n");
+            today.getAllProduct().forEach(product ->{
+                if (!(product ==null))
+                System.out.println(product.getName()+" has quantity :"+product.getQuantity());} );
+
           //  System.out.println(today.buy("darkmarvel@gmail.com",""));
-            //buy item
+            //buy ite
            // System.out.println(today.buy("darkmarvel@gmail.com","15 Avenue de avenue felix vincent"));
             // Create client thread
             Thread client1 = new Thread(new Runnable() {
@@ -54,13 +58,13 @@ public class Client {
                         User user = today.login("Marvel","123456789");
                         System.out.println(user.toString());
                         if(!(user ==null)){
-                            System.out.println(today.addToCart("darkmarvel@gmail.com","Jeans-610cf477-248b-45c4-b81e-f251a15e8ac2").toString());
-                            System.out.println(today.addToCart("darkmarvel@gmail.com","Shirt-9d149dea-ba4a-4981-b180-e23d6fe4f060").toString());
-                            System.out.println(today.addToCart("darkmarvel@gmail.com","Jeans-69b3fbfc-3a8e-409c-9315-06541fb60f32").toString());
-                            System.out.println(today.addToCart("darkmarvel@gmail.com","Shoes-0bea0315-61b7-4e86-83a6-f7b29806ba2b").toString());
+                            today.addToCart("darkmarvel@gmail.com","Jeans-43f6ed38-2cde-4fc6-8607-07b5d6cbfdb9");
+                            today.addToCart("darkmarvel@gmail.com","Shirt-9d149dea-ba4a-4981-b180-e23d6fe4f060");
+                            today.addToCart("darkmarvel@gmail.com","Jeans-69b3fbfc-3a8e-409c-9315-06541fb60f32");
+                            today.addToCart("darkmarvel@gmail.com","Shoes-0bea0315-61b7-4e86-83a6-f7b29806ba2b");
                             System.out.println(user.getUsername()+" a acheté "+today.buy("darkmarvel@gmail.com","15 Avenue de avenue felix vincent").getQuantity()+" produits");
-                            System.out.println(today.addToCart("darkmarvel@gmail.com","Shoes-0bea0315-61b7-4e86-83a6-f7b29806ba2b").toString());
-                            System.out.println(today.addToCart("darkmarvel@gmail.com","Veste-3086bbcb-47dd-40a8-80d4-77cb82124e9e").toString());
+                            today.addToCart("darkmarvel@gmail.com","Shoes-0bea0315-61b7-4e86-83a6-f7b29806ba2b");
+                            today.addToCart("darkmarvel@gmail.com","Veste-3086bbcb-47dd-40a8-80d4-77cb82124e9e");
                             System.out.println(user.getUsername()+" a acheté "+today.buy("darkmarvel@gmail.com","15 Avenue de avenue felix vincent").getQuantity()+" produits");
                         }
                     }
@@ -81,13 +85,13 @@ public class Client {
                         User user = today.login("Sami","123456789");
                         System.out.println(user.toString());
                         if(!(user ==null)){
-                            System.out.println(today.addToCart("sami@gmail.com","Jeans-610cf477-248b-45c4-b81e-f251a15e8ac2").toString());
-                            System.out.println(today.addToCart("sami@gmail.com","Shoes-f7a09001-49db-4fdc-9636-0438b45a5982").toString());
-                            System.out.println(today.addToCart("sami@gmail.com","Shirt-9d149dea-ba4a-4981-b180-e23d6fe4f060").toString());
-                            System.out.println(today.addToCart("sami@gmail.com","Shoes-0bea0315-61b7-4e86-83a6-f7b29806ba2b").toString());
+                            today.addToCart("sami@gmail.com","Jeans-43f6ed38-2cde-4fc6-8607-07b5d6cbfdb9");
+                            today.addToCart("sami@gmail.com","Shoes-f7a09001-49db-4fdc-9636-0438b45a5982");
+                            today.addToCart("sami@gmail.com","Shirt-9d149dea-ba4a-4981-b180-e23d6fe4f060");
+                            today.addToCart("sami@gmail.com","Shoes-0bea0315-61b7-4e86-83a6-f7b29806ba2b");
                             System.out.println(user.getUsername()+" a acheté "+today.buy("sami@gmail.com","16 Avenue de avenue felix vincent").getQuantity()+" produits");
-                            System.out.println(today.addToCart("sami@gmail.com","Veste-3086bbcb-47dd-40a8-80d4-77cb82124e9e").toString());
-                            System.out.println(today.addToCart("sami@gmail.com","T-Shirt-a1eb1723-a70d-4639-9911-b83987001c71").toString());
+                            today.addToCart("sami@gmail.com","Veste-3086bbcb-47dd-40a8-80d4-77cb82124e9e");
+                            today.addToCart("sami@gmail.com","T-Shirt-a1eb1723-a70d-4639-9911-b83987001c71");
                             System.out.println(user.getUsername()+" a acheté "+today.buy("sami@gmail.com","16 Avenue de avenue felix vincent").getQuantity()+" produits");
 
                         }
@@ -109,13 +113,13 @@ public class Client {
                         User user = today.login("Oury","123456789");
                         System.out.println(user.toString());
                         if(!(user ==null)){
-                            System.out.println(today.addToCart("oury@gmail.com","Jeans-610cf477-248b-45c4-b81e-f251a15e8ac2").toString());
-                            System.out.println(today.addToCart("oury@gmail.com","Jeans-529179d5-9687-41b5-8e47-19c3e071bff8").toString());
-                            System.out.println(today.addToCart("oury@gmail.com","Shoes-f7a09001-49db-4fdc-9636-0438b45a5982").toString());
-                            System.out.println(today.addToCart("oury@gmail.com","Pull-f59668e0-fbe6-4d70-9794-8e3ea5cc1392").toString());
+                            today.addToCart("oury@gmail.com","Jeans-43f6ed38-2cde-4fc6-8607-07b5d6cbfdb9");
+                            today.addToCart("oury@gmail.com","Jeans-529179d5-9687-41b5-8e47-19c3e071bff8");
+                            today.addToCart("oury@gmail.com","Shoes-f7a09001-49db-4fdc-9636-0438b45a5982");
+                            today.addToCart("oury@gmail.com","Pull-f59668e0-fbe6-4d70-9794-8e3ea5cc1392");
                             System.out.println(user.getUsername()+" a acheté "+today.buy("oury@gmail.com","15 Avenue de avenue felix vincent").getQuantity()+" produits");
-                            System.out.println(today.addToCart("oury@gmail.com","Shoes-f7a09001-49db-4fdc-9636-0438b45a5982").toString());
-                            System.out.println(today.addToCart("oury@gmail.com","T-Shirt-a1eb1723-a70d-4639-9911-b83987001c71").toString());
+                            today.addToCart("oury@gmail.com","Shoes-f7a09001-49db-4fdc-9636-0438b45a5982");
+                            today.addToCart("oury@gmail.com","T-Shirt-a1eb1723-a70d-4639-9911-b83987001c71");
                             System.out.println(user.getUsername()+" a acheté "+today.buy("oury@gmail.com","15 Avenue de avenue felix vincent").getQuantity()+" produits");
 
                         }
@@ -148,7 +152,7 @@ public class Client {
                            // today.addProduct("Shoes","Timberland", "Bottes de neige de couleur gris",200,2);
 
                             //modification des Produits
-                            Product product =today.EditProduct("Jeans-610cf477-248b-45c4-b81e-f251a15e8ac2","Jean droit 501","Jean noir Levi's ",100,1);
+                            Product product =today.EditProduct("Jeans-43f6ed38-2cde-4fc6-8607-07b5d6cbfdb9","Jean droit 501","Jean noir Levi's ",100,1);
                             if(!(product ==null)){
                                 System.out.println("le produit "+product.getName()+" a été modifié avec succes ");
                             }else{
@@ -186,6 +190,8 @@ public class Client {
             client1.start();
             client3.start();
             producer.start();
+
+
 
             // t1 finishes before t2
             //t1.join();

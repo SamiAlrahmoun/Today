@@ -43,18 +43,7 @@ public class ProductService {
     }
 
    public ArrayList<Product> getProductList(MongoDatabase db) {
-       ArrayList<Product> products = new ArrayList<>();
-     FindIterable<Product> product1 = db.getCollection("Product", Product.class).find();
-       MongoCursor<Product> product = product1.iterator();
-
-       while (product.hasNext()) {
-           System.out.println("p& :"+product.next().toString());
-           if ((product ==null)){
-               break;
-           }else {
-               products.add(product.tryNext());
-           }
-       }
+     ArrayList<Product> products = db.getCollection("Product", Product.class).find().into(new ArrayList<>());
        return products;
    }
 
