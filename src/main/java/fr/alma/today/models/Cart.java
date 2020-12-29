@@ -15,6 +15,7 @@ public class Cart implements Serializable {
     private List<Product> products = new ArrayList<Product>() ;
     private Double total ;
     private Integer size ;
+    private String message;
 
     public Cart(){
 
@@ -43,13 +44,21 @@ public class Cart implements Serializable {
         this.cartId = cartId;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
     public void setTotal(Double total) {
         this.total = total;
     }
     public Double cartPrice(List<Product> products){
         Double sum = 0.0;
         if (products.size()>0) {
-            System.out.println("product size :"+products.size());
+           // System.out.println("product size :"+products.size());
 
             for (Product product : products) {
             //    System.out.println("product size :"+product.toString());

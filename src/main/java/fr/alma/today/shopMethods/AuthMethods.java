@@ -25,7 +25,7 @@ public class AuthMethods {
 
     public User register(String username,String email,String password){
         Cart cart= new Cart(email);
-        System.out.println(this.database);
+      //  System.out.println(this.database);
         this.cartService.saveCart(cart, this.database);
         Account account = new Account(username,email);
         this.accountService.saveAccount(account,database);
@@ -34,8 +34,8 @@ public class AuthMethods {
     }
     public User login(String username, String password){
       User client =  this.userService.getCustomerByUsername(username, this.database);
-        System.out.println("password database :"+client.getPassword());
-        System.out.println("password :"+password);
+     //   System.out.println("password database :"+client.getPassword());
+       // System.out.println("password :"+password);
      if(client.getPassword().equals(password)){
          System.out.println("login succes");
          return client;

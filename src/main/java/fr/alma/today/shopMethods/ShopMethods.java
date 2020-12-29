@@ -55,25 +55,36 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
     public synchronized Order buy( String cardId, String Address)throws RemoteException{
 
         Cart cart  =  cartService.getCart(cardId,this.database);
-
-        // cart = cartRepository.findCartByCartId(cardId);
+        ///lock all products in cart
         lockedCartProduct(cart.getProducts());
-        ///after the block of  synchronisation
-        return orderService.buy(cardId,Address,this.database);
+        Order newOrder = orderService.buy(cardId,Address,this.database);
+        //release all products after buy for the remaining quantity
+        newOrder.getProducts().forEach(product -> {
+            unlockedProduct(product);
+        });
+        return newOrder;
 
     }
 
 
     //to do block of synchromisation
     public synchronized Cart addToCart(String cartId, String productID) throws InterruptedException {
+
         while (isLocked(productID)){
             wait();
         }
-        return   cartService.addToCart(cartId, productID, this.database);
+        //si le produit est 0 on ne peux pas l'ajouter dans le panier
+        if (productService.getProduct(productID,this.database).getQuantity()==0){
+            return   cartService.getCart(cartId, this.database);
+        }else {
+            return   cartService.addToCart(cartId, productID, this.database);
+        }
+
 
     }
     public synchronized Cart removeFromCart(String cartId, String productID){
         if(isLocked(productID)){
+            System.out.println("the product is lock can't remove from the cart");
             return cartService.getCart(cartId, this.database);
         }else{
             return cartService.removeToCart(cartId, productID, this.database);
@@ -90,12 +101,16 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
     //block of synchronisation
     public synchronized Product EditProduct(String productID,String name,String description, double price, Integer quantity){
         if(isLocked(productID)){
+            System.out.println("the product is lock can't edit");
             return null;
         }else{
 
             Product product = new Product(productID,name,description,price,quantity);
             product.setId(productID);
-            return productService.modifyProduct(product, database);
+            lockedProduct(product);// lock product
+            Product newProduct =  productService.modifyProduct(product, database);
+            unlockedProduct(newProduct);// release product
+            return newProduct;
         }
     }
 
@@ -104,17 +119,15 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
     }
 
     //block of synchronisation
-    public synchronized boolean removeProduct(String productId) throws RemoteException{
+    public synchronized Product removeProduct(String productId) throws RemoteException{
         Product product = productService.getProduct(productId,this.database);
-        if (!(product==null)){
+
             if(!isLocked(productId)){
                 return productService.deleteProduct(productId,this.database );
             }else{
-                return false;
+                System.out.println(product.getName()+" product is lock");
+                return product;
             }
-        }else{
-            return true;
-        }
 
 
     }
@@ -130,11 +143,11 @@ public class ShopMethods extends UnicastRemoteObject implements ShopInterfarce {
    }
     public void unlockedProduct(Product product){
         product.setLocked(false);
-        notifyAll();
+        notifyAll();// notify all product is available
         productService.modifyProduct(product,this.database);
     }
    public boolean isLocked (String productId){
-        System.out.println("isLock:"+ productService.getProduct(productId,this.database).isLocked());
+       /// System.out.println("isLock:"+ productService.getProduct(productId,this.database).isLocked());
       return   productService.getProduct(productId,this.database).isLocked();
    }
 

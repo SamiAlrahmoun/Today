@@ -19,6 +19,7 @@ public class Order  implements Serializable {
     private List<Product> products;
     private Double price;
     private Integer quantity;
+    private String message;
 
 
     public Order() {
@@ -33,6 +34,28 @@ public class Order  implements Serializable {
         this.price = price;
         this.quantity = quantity;
 
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", products=" + products +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", message='" + message + '\'' +
+                '}';
     }
 
     public Double getPrice() {

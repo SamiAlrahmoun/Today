@@ -98,18 +98,12 @@ public class ProductService {
     }
 
 
-   public boolean deleteProduct(String productId, MongoDatabase database) {
+   public Product deleteProduct(String productId, MongoDatabase database) {
+       FindOneAndUpdateOptions optionAfter = new FindOneAndUpdateOptions().returnDocument(ReturnDocument.AFTER);
+ return database.getCollection("Product", Product.class).findOneAndUpdate(eq("product_id", productId),set("quantity",0),optionAfter);
 
- database.getCollection("Product", Product.class).findOneAndDelete(eq("product_id", productId));
- Product product = getProduct(productId, database);
 //System.out.println(product.toString());
-       if(product == null) {
-           System.out.println("delete true");
-            return true;
-        }else{
-           System.out.println("delete false");
-            return false;
-        }
+
    }
 
 

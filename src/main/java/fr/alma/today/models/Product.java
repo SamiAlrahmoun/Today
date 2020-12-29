@@ -20,6 +20,7 @@ public class Product  implements Serializable {
     private double amount;
     //Object used for the Synchroniation
     private boolean locked;
+    private String message;
 
     SimpleDateFormat formater = null;
 
@@ -43,6 +44,13 @@ public class Product  implements Serializable {
     }
 
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 
     /**
      * @return the id
