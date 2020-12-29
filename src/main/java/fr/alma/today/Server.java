@@ -31,16 +31,6 @@ public class Server   {
         Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
 
 
-        //logger.debug("Starting Mongo");
-   //     MongoClientOptions.Builder options = MongoClientOptions.builder()
-      //.connectionsPerHost(4)
-        //        .maxConnectionIdleTime((60 * 1_000))
-          //      .maxConnectionLifeTime((120 * 1_000));
-        ;
-
-        //MongoClientURI uri = new MongoClientURI("mongodb://localhost:27017/test", options);
-
-
         ConnectionString connectionString = new ConnectionString("mongodb+srv://today:today123@cluster0.ny1qh.mongodb.net/today?retryWrites=true&w=majority");
         CodecRegistry pojoCodecRegistry = fromProviders(PojoCodecProvider.builder().automatic(true).build());
         CodecRegistry codecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(), pojoCodecRegistry);
@@ -52,13 +42,10 @@ public class Server   {
         try{
             MongoClient mongoClient = MongoClients.create(clientSettings);
            mongoClient.watch();
-           // MongoClientURI uri = new MongoClientURI("mongodb+srv://today:today123@cluster0.ny1qh.mongodb.net/today?retryWrites=true&w=majority", options);
 
-          //  logger.info("About to connect to MongoDB @ " + uri.toString());
             MongoDatabase database = mongoClient.getDatabase("today");
             Registry registry = LocateRegistry.createRegistry(1099);
-            //new ShopMethods(database).register("Marvel","darkmarvel@gmail.com","123456789");
-            //new ShopMethods(database).login("Marvel","123456789");
+
              registry.bind("today", new ShopMethods(database));
             System.out.println("Server is connected and waiting for the client");
 

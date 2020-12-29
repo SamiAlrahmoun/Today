@@ -23,7 +23,7 @@ public class OrderService {
         cart.getProducts().forEach(product -> {
             //We check if the producr quanntity is greater zero to buy
             //if no we remove from the cart before buying
-            System.out.println(product.getId());
+           // System.out.println(product.getId());
             if (productService.getProduct(product.getId(),database).getQuantity()>0){
 
                 database.getCollection("Product",Product.class).findOneAndUpdate(eq("product_id",product.getId()),inc("quantity", -1));

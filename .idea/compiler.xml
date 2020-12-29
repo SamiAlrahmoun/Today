@@ -7,11 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Today" />
-        <module name="java-quick-start" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="java-quick-start" target="8" />
       <module name="Today" target="8" />
     </bytecodeTargetLevel>
   </component>
