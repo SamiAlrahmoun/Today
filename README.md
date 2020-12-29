@@ -50,6 +50,6 @@ java -cp Today.jar fr.alma.today.Client
 
 
 # Author
-Mamadou Oury DIALLO
-Marvel OYOGHO LAWSON
-Sami AL RAHMOUN
+- Mamadou Oury DIALLO
+- Marvel OYOGHO LAWSON
+- Sami AL RAHMOUN

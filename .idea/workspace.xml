@@ -23,9 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="757671c0-4422-465e-99fe-048565277b6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/alma/today/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/alma/today/service/OrderService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609256367005</updated>
       <workItem from="1609256369417" duration="694000" />
-      <workItem from="1609257946919" duration="1181000" />
+      <workItem from="1609257946919" duration="1226000" />
     </task>
     <servers />
   </component>
