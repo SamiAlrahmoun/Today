@@ -23,17 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="757671c0-4422-465e-99fe-048565277b6c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Today_jar/Today.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Today_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/alma/today/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/alma/today/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/alma/today/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/alma/today/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/alma/today/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/alma/today/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fr/alma/today/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/alma/today/service/OrderService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +58,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -94,17 +87,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Client" />
@@ -120,7 +102,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609256367005</updated>
-      <workItem from="1609256369417" duration="93000" />
+      <workItem from="1609256369417" duration="694000" />
+      <workItem from="1609257946919" duration="1181000" />
     </task>
     <servers />
   </component>
@@ -137,27 +120,28 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="193" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609256409486">
       <screen x="0" y="25" width="1440" height="820" />
     </state>
     <state x="193" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.820@0.25.1440.820" timestamp="1609256409486" />
-    <state width="1380" height="195" key="GridCell.Tab.0.bottom" timestamp="1609256450472">
+    <state width="1380" height="195" key="GridCell.Tab.0.bottom" timestamp="1609256490525">
       <screen x="0" y="25" width="1440" height="820" />
     </state>
-    <state width="1380" height="195" key="GridCell.Tab.0.bottom/0.25.1440.820@0.25.1440.820" timestamp="1609256450472" />
-    <state width="1380" height="195" key="GridCell.Tab.0.center" timestamp="1609256450472">
+    <state width="1380" height="195" key="GridCell.Tab.0.bottom/0.25.1440.820@0.25.1440.820" timestamp="1609256490525" />
+    <state width="1380" height="195" key="GridCell.Tab.0.center" timestamp="1609256490525">
       <screen x="0" y="25" width="1440" height="820" />
     </state>
-    <state width="1380" height="195" key="GridCell.Tab.0.center/0.25.1440.820@0.25.1440.820" timestamp="1609256450471" />
-    <state width="1380" height="195" key="GridCell.Tab.0.left" timestamp="1609256450471">
+    <state width="1380" height="195" key="GridCell.Tab.0.center/0.25.1440.820@0.25.1440.820" timestamp="1609256490525" />
+    <state width="1380" height="195" key="GridCell.Tab.0.left" timestamp="1609256490524">
       <screen x="0" y="25" width="1440" height="820" />
     </state>
-    <state width="1380" height="195" key="GridCell.Tab.0.left/0.25.1440.820@0.25.1440.820" timestamp="1609256450471" />
-    <state width="1380" height="195" key="GridCell.Tab.0.right" timestamp="1609256450472">
+    <state width="1380" height="195" key="GridCell.Tab.0.left/0.25.1440.820@0.25.1440.820" timestamp="1609256490524" />
+    <state width="1380" height="195" key="GridCell.Tab.0.right" timestamp="1609256490525">
       <screen x="0" y="25" width="1440" height="820" />
     </state>
-    <state width="1380" height="195" key="GridCell.Tab.0.right/0.25.1440.820@0.25.1440.820" timestamp="1609256450472" />
+    <state width="1380" height="195" key="GridCell.Tab.0.right/0.25.1440.820@0.25.1440.820" timestamp="1609256490525" />
   </component>
 </project>
